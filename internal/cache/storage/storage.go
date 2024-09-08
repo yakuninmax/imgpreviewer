@@ -2,7 +2,6 @@ package storage
 
 import (
 	"fmt"
-	"log/slog"
 	"os"
 	"path/filepath"
 	"time"
@@ -15,19 +14,17 @@ var (
 )
 
 type Storage struct {
-	path  string
-	limit int
+	path string
 }
 
-func New(path string, cacheSize int, logger *slog.Logger) (*Storage, error) {
-	tempDirPath, err := createFolder(path, logger)
+func New(path string) (*Storage, error) {
+	tempDirPath, err := createFolder(path)
 	if err != nil {
 		return nil, err
 	}
 
 	return &Storage{
-		path:  tempDirPath,
-		limit: cacheSize,
+		path: tempDirPath,
 	}, nil
 }
 
@@ -72,7 +69,7 @@ func (s *Storage) Clean() error {
 }
 
 // Create cache temp folder.
-func createFolder(path string, logger *slog.Logger) (string, error) {
+func createFolder(path string) (string, error) {
 	// Get temp dir name for cache at given path.
 	// Use current date as temp dir name.
 	date := time.Now().Format("20060102150405")
@@ -93,8 +90,6 @@ func createFolder(path string, logger *slog.Logger) (string, error) {
 
 		return "", fmt.Errorf("failed to get dir: %w", err)
 	}
-
-	logger.Info("cache path is " + tempDirPath)
 
 	return tempDirPath, nil
 }
