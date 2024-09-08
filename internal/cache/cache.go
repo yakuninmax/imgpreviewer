@@ -18,7 +18,7 @@ var (
 
 type Cache struct {
 	mu      *sync.Mutex
-	size    int
+	size    int64
 	queue   *queue
 	files   map[string]*item
 	storage *storage.Storage
@@ -26,11 +26,11 @@ type Cache struct {
 
 type file struct {
 	uri  string
-	size int // image size in bytes
+	size int64 // image size in bytes
 	name string
 }
 
-func New(path string, size int, logger *slog.Logger) (*Cache, error) {
+func New(path string, size int64, logger *slog.Logger) (*Cache, error) {
 	var mutex = sync.Mutex{}
 
 	// Init cache storage.
@@ -60,7 +60,7 @@ func (c *Cache) Get(uri string) ([]byte, error) {
 
 	if exists {
 		// Read file.
-		image, err := c.storage.Read(c.files[uri].data.name)
+		image, err := c.storage.Read(c.files[uri].file.name)
 		if err != nil {
 			return nil, err
 		}
@@ -81,7 +81,7 @@ func (c *Cache) Put(uri string, data []byte) error {
 	defer c.mu.Unlock()
 
 	// Get file size.
-	size := len(data)
+	size := int64(len(data))
 
 	// Check if file size greater than cache size.
 	if size > c.size {
@@ -96,9 +96,18 @@ func (c *Cache) Put(uri string, data []byte) error {
 
 	// Check if cache space available, and cleanup.
 	if c.queue.size+size > c.size {
-		for ok := true; ok; ok = c.queue.size <= c.size {
-			delete(c.files, c.queue.getBack().data.uri)
+		for {
+			err := c.storage.Delete(c.queue.getBack().file.name)
+			if err != nil {
+				return err
+			}
+
+			delete(c.files, c.queue.getBack().file.uri)
 			c.queue.remove(c.queue.back)
+
+			if c.queue.size+size <= c.size {
+				break
+			}
 		}
 	}
 
@@ -111,6 +120,17 @@ func (c *Cache) Put(uri string, data []byte) error {
 	// Add to queue front.
 	c.queue.pushFront(file)
 	c.files[uri] = c.queue.getFront()
+
+	return nil
+}
+
+func (c *Cache) Clean(logger *slog.Logger) error {
+	err := c.storage.Clean()
+	if err != nil {
+		return err
+	}
+
+	logger.Info("cache folder " + c.storage.Path() + " deleted")
 
 	return nil
 }

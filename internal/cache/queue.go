@@ -1,12 +1,12 @@
 package cache
 
 type queue struct {
-	size  int // current cache size in bytes
+	size  int64 // current cache size in bytes
 	front *item
 	back  *item
 }
 type item struct {
-	data file
+	file file
 	next *item
 	prev *item
 }
@@ -30,7 +30,7 @@ func (q *queue) getBack() *item {
 func (q *queue) pushFront(file file) *item {
 	// New item.
 	item := new(item)
-	item.data = file
+	item.file = file
 
 	// Check if list is empty.
 	if q.size == 0 {
@@ -76,7 +76,7 @@ func (q *queue) remove(item *item) {
 		prev.next = next
 	}
 
-	q.size = q.size - item.data.size
+	q.size = q.size - item.file.size
 }
 
 // Move item to front.
@@ -86,6 +86,6 @@ func (q *queue) moveToFront(item *item) {
 		q.back = item.prev
 	}
 
-	q.pushFront(item.data)
+	q.pushFront(item.file)
 	q.remove(item)
 }
