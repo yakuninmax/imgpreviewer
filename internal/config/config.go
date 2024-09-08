@@ -22,7 +22,7 @@ var (
 )
 
 type Config struct {
-	cacheSize int
+	cacheSize int64
 	cachePath string
 }
 
@@ -43,7 +43,7 @@ func New(logger *slog.Logger) (*Config, error) {
 	}, nil
 }
 
-func (c *Config) CacheSize() int {
+func (c *Config) CacheSize() int64 {
 	return c.cacheSize
 }
 
@@ -52,7 +52,7 @@ func (c *Config) CachePath() string {
 }
 
 // Get cache size from env var.
-func getCacheSize(logger *slog.Logger) (int, error) {
+func getCacheSize(logger *slog.Logger) (int64, error) {
 	env := os.Getenv(cacheSizeEnvName)
 
 	// Check if no env, or empty string.
@@ -79,7 +79,7 @@ func getCacheSize(logger *slog.Logger) (int, error) {
 	logger.Info("cache size is " + env + "MB")
 
 	// Convert megabytes to bytes, and return.
-	return size * 1024 * 1024, nil
+	return int64(size * 1024 * 1024), nil
 }
 
 // Get cache folder path from env var.

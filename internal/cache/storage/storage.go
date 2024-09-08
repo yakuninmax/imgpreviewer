@@ -35,7 +35,8 @@ func (s *Storage) Path() string {
 
 // Write file to storage.
 func (s *Storage) Write(name string, data []byte) error {
-	err := os.WriteFile(name, data, os.ModePerm)
+	filePath := filepath.Join(s.path, name)
+	err := os.WriteFile(filePath, data, os.ModePerm)
 	if err != nil {
 		return fmt.Errorf("failed to write file: %w", err)
 	}
@@ -45,7 +46,8 @@ func (s *Storage) Write(name string, data []byte) error {
 
 // Read file from storage.
 func (s *Storage) Read(name string) ([]byte, error) {
-	data, err := os.ReadFile(name)
+	filePath := filepath.Join(s.path, name)
+	data, err := os.ReadFile(filePath)
 	if err != nil {
 		return nil, fmt.Errorf("failed to read file: %w", err)
 	}
@@ -55,6 +57,12 @@ func (s *Storage) Read(name string) ([]byte, error) {
 
 // Delete file from storage.
 func (s *Storage) Delete(name string) error {
+	filePath := filepath.Join(s.path, name)
+	err := os.Remove(filePath)
+	if err != nil {
+		return err
+	}
+
 	return nil
 }
 

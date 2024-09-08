@@ -26,6 +26,13 @@ func main() {
 		logger.Error(err.Error())
 		os.Exit(1)
 	}
+	defer func() {
+		err := cache.Clean(logger)
+		if err != nil {
+			logger.Error(err.Error())
+			os.Exit(1)
+		}
+	}()
 
 	fmt.Print(cache)
 }
