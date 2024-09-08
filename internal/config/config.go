@@ -57,7 +57,7 @@ func getCacheSize(logger *slog.Logger) (int, error) {
 
 	// Check if no env, or empty string.
 	if env == "" {
-		logger.Info("IMPR_CACHE_SIZE value is empty, set default cache size")
+		logger.Warn("IMPR_CACHE_SIZE value is empty, set default cache size")
 		logger.Info("cache size is " + strconv.Itoa(defaultCacheSize/1024/1024) + "MB")
 
 		return defaultCacheSize, nil
@@ -87,7 +87,7 @@ func getCachePath(logger *slog.Logger) (string, error) {
 	path := os.Getenv(cacheFolderEnvName)
 
 	if path == "" {
-		logger.Info("IMPR_CACHE_PATH value is empty, set default cache path")
+		logger.Warn("IMPR_CACHE_PATH value is empty, set default cache path")
 
 		path = defaultCachePath
 	}
