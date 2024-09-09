@@ -1,17 +1,17 @@
 package main
 
 import (
-	"fmt"
-	"log/slog"
 	"os"
 
 	"github.com/yakuninmax/imgpreviewer/internal/cache"
 	"github.com/yakuninmax/imgpreviewer/internal/config"
+	httpclient "github.com/yakuninmax/imgpreviewer/internal/http/client"
+	"github.com/yakuninmax/imgpreviewer/internal/logger"
 )
 
 func main() {
 	// Init logger.
-	logger := slog.New(slog.NewTextHandler(os.Stdout, nil))
+	logger := logger.New()
 
 	// Get config.
 	config, err := config.New(logger)
@@ -34,5 +34,8 @@ func main() {
 		}
 	}()
 
-	fmt.Print(cache)
+	// Init http client.
+	client := httpclient.New(config.RequestTimeout())
+
+	client.GetImage("https://ya.ru")
 }
