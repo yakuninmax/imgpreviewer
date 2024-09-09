@@ -70,7 +70,7 @@ func (s *Storage) Delete(name string) error {
 func (s *Storage) Clean() error {
 	err := os.RemoveAll(s.path)
 	if err != nil {
-		return fmt.Errorf("failed to remove cache dir: %w", err)
+		return fmt.Errorf("failed to remove temp cache folder: %w", err)
 	}
 
 	return nil

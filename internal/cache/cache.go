@@ -39,7 +39,7 @@ func New(path string, size int64, logger *slog.Logger) (*Cache, error) {
 		return nil, err
 	}
 
-	logger.Info("cache path is " + storage.Path())
+	logger.Info("temp cache folder is " + storage.Path())
 
 	return &Cache{
 		mu:      &mutex,
@@ -130,7 +130,7 @@ func (c *Cache) Clean(logger *slog.Logger) error {
 		return err
 	}
 
-	logger.Info("cache folder " + c.storage.Path() + " deleted")
+	logger.Info("temp cache folder " + c.storage.Path() + " deleted")
 
 	return nil
 }
