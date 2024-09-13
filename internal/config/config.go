@@ -2,13 +2,13 @@ package config
 
 import (
 	"fmt"
-	"log/slog"
 	"os"
 	"path/filepath"
 	"strconv"
 	"time"
 
 	"github.com/pkg/errors"
+	"github.com/yakuninmax/imgpreviewer/internal/logger"
 )
 
 const (
@@ -31,7 +31,7 @@ type Config struct {
 	requestTimeout time.Duration
 }
 
-func New(logger *slog.Logger) (*Config, error) {
+func New(logger *logger.Log) (*Config, error) {
 	cacheSize, err := getCacheSize(logger)
 	if err != nil {
 		return nil, err
@@ -67,7 +67,7 @@ func (c *Config) RequestTimeout() time.Duration {
 }
 
 // Get cache size from env var.
-func getCacheSize(logger *slog.Logger) (int64, error) {
+func getCacheSize(logger *logger.Log) (int64, error) {
 	env := os.Getenv(cacheSizeEnvName)
 
 	// Check if no env, or empty string.
@@ -96,7 +96,7 @@ func getCacheSize(logger *slog.Logger) (int64, error) {
 }
 
 // Get cache folder path from env var.
-func getCachePath(logger *slog.Logger) (string, error) {
+func getCachePath(logger *logger.Log) (string, error) {
 	path := os.Getenv(cacheFolderEnvName)
 
 	if path == "" {
@@ -119,7 +119,7 @@ func getCachePath(logger *slog.Logger) (string, error) {
 }
 
 // Get request timeout.
-func getRequestTimeout(logger *slog.Logger) (time.Duration, error) {
+func getRequestTimeout(logger *logger.Log) (time.Duration, error) {
 	env := os.Getenv(requestTimeoutEnvName)
 
 	// Check if no env, or empty string.

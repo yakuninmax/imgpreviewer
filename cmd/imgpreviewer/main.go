@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"os"
 
 	"github.com/yakuninmax/imgpreviewer/internal/cache"
@@ -37,5 +38,18 @@ func main() {
 	// Init http client.
 	client := httpclient.New(config.RequestTimeout())
 
-	client.GetImage("https://ya.ru")
+	headers := make(map[string]string)
+	headers["Accept"] = "text/html"
+	headers["Content-Type"] = "text/html; charset=utf-8"
+
+	image, err := client.GetImage("https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.7/npp.8.6.7.Installer.x64.exe", headers)
+	if err != nil {
+		print(err.Error())
+		os.Exit(1)
+	}
+
+	err = os.WriteFile("destination.jpeg", image, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
