@@ -1,16 +1,16 @@
 package cache
 
 import (
-	"log/slog"
 	"os"
 	"testing"
 
 	"github.com/stretchr/testify/require"
+	"github.com/yakuninmax/imgpreviewer/internal/logger"
 )
 
 func TestCache(t *testing.T) {
 	// Init logger.
-	logger := slog.New(slog.NewTextHandler(os.Stdout, nil))
+	logger := logger.New()
 
 	path := "/tmp"
 

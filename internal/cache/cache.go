@@ -3,12 +3,12 @@ package cache
 import (
 	"errors"
 	"fmt"
-	"log/slog"
 	"math/rand"
 	"sync"
 	"time"
 
 	"github.com/yakuninmax/imgpreviewer/internal/cache/storage"
+	"github.com/yakuninmax/imgpreviewer/internal/logger"
 )
 
 var (
@@ -30,7 +30,7 @@ type file struct {
 	name string
 }
 
-func New(path string, size int64, logger *slog.Logger) (*Cache, error) {
+func New(path string, size int64, logger *logger.Log) (*Cache, error) {
 	var mutex = sync.Mutex{}
 
 	// Init cache storage.
@@ -124,7 +124,7 @@ func (c *Cache) Put(uri string, data []byte) error {
 	return nil
 }
 
-func (c *Cache) Clean(logger *slog.Logger) error {
+func (c *Cache) Clean(logger *logger.Log) error {
 	err := c.storage.Clean()
 	if err != nil {
 		return err
