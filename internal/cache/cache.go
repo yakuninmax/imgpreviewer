@@ -7,8 +7,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yakuninmax/imgpreviewer/internal/cache/storage"
 	"github.com/yakuninmax/imgpreviewer/internal/logger"
+	"github.com/yakuninmax/imgpreviewer/internal/storage"
 )
 
 var (
@@ -58,21 +58,21 @@ func (c *Cache) Get(uri string) ([]byte, error) {
 	// Check if file exists.
 	_, exists := c.files[uri]
 
-	if exists {
-		// Read file.
-		image, err := c.storage.Read(c.files[uri].file.name)
-		if err != nil {
-			return nil, err
-		}
-
-		// Move to front.
-		c.queue.moveToFront(c.files[uri])
-		c.files[uri] = c.queue.getFront()
-
-		return image, nil
+	if !exists {
+		return nil, nil
 	}
 
-	return nil, ErrNotFound
+	// Read file.
+	image, err := c.storage.Read(c.files[uri].file.name)
+	if err != nil {
+		return nil, err
+	}
+
+	// Move to front.
+	c.queue.moveToFront(c.files[uri])
+	c.files[uri] = c.queue.getFront()
+
+	return image, nil
 }
 
 // Put file to cache.

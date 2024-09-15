@@ -1,55 +1,58 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"os"
 
+	"github.com/yakuninmax/imgpreviewer/internal/app"
 	"github.com/yakuninmax/imgpreviewer/internal/cache"
 	"github.com/yakuninmax/imgpreviewer/internal/config"
-	httpclient "github.com/yakuninmax/imgpreviewer/internal/http/client"
+	"github.com/yakuninmax/imgpreviewer/internal/downloader"
 	"github.com/yakuninmax/imgpreviewer/internal/logger"
+	"github.com/yakuninmax/imgpreviewer/internal/processor"
 )
 
 func main() {
 	// Init logger.
-	logger := logger.New()
+	l := logger.New()
 
 	// Get config.
-	config, err := config.New(logger)
+	conf, err := config.New(l)
 	if err != nil {
-		logger.Error(err.Error())
+		l.Error(err.Error())
 		os.Exit(1)
 	}
 
 	// Init cache.
-	cache, err := cache.New(config.CachePath(), config.CacheSize(), logger)
+	c, err := cache.New(conf.CachePath(), conf.CacheSize(), l)
 	if err != nil {
-		logger.Error(err.Error())
+		l.Error(err.Error())
 		os.Exit(1)
 	}
 	defer func() {
-		err := cache.Clean(logger)
+		err := c.Clean(l)
 		if err != nil {
-			logger.Error(err.Error())
+			l.Error(err.Error())
 			os.Exit(1)
 		}
 	}()
 
-	// Init http client.
-	client := httpclient.New(config.RequestTimeout())
+	// Init downloader.
+	d := downloader.New(conf.RequestTimeout())
+
+	// Init processor.
+	p := processor.New()
+
+	// Init app.
+	app := app.New(l, c, d, p)
 
 	headers := make(map[string]string)
 	headers["Accept"] = "text/html"
 	headers["Content-Type"] = "text/html; charset=utf-8"
 
-	image, err := client.GetImage("https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.6.7/npp.8.6.7.Installer.x64.exe", headers)
+	_, err = app.Crop("500/300/https://filesamples.com/samples/image/jpeg/sample_1920%C3%971280.jpeg", headers)
 	if err != nil {
-		print(err.Error())
+		fmt.Println(err.Error())
 		os.Exit(1)
-	}
-
-	err = os.WriteFile("destination.jpeg", image, 0644)
-	if err != nil {
-		log.Fatal(err)
 	}
 }

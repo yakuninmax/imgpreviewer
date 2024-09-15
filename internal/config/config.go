@@ -15,6 +15,8 @@ const (
 	cacheSizeEnvName      = "IMPR_CACHE_SIZE"
 	cacheFolderEnvName    = "IMPR_CACHE_FOLDER"
 	requestTimeoutEnvName = "IMPR_REQ_TIMEOUT"
+	serverPort            = "IMPR_PORT"
+	defaultSereverPort    = "8080"
 	defaultCacheSize      = 10485760
 	defaultCachePath      = "/tmp/impr_cache"
 	defaultRequestTimeout = 10
@@ -23,12 +25,14 @@ const (
 var (
 	ErrCacheSizeZeroOrLess      = errors.New("cache size is zero or less")
 	ErrRequestTimeoutZeroOrLess = errors.New("request timeout is zero or less")
+	ErrInvalidPort              = errors.New("invalid port number")
 )
 
 type Config struct {
 	cacheSize      int64
 	cachePath      string
 	requestTimeout time.Duration
+	serverPort     string
 }
 
 func New(logger *logger.Log) (*Config, error) {
@@ -47,10 +51,16 @@ func New(logger *logger.Log) (*Config, error) {
 		return nil, err
 	}
 
+	serverPort, err := getServerPort(logger)
+	if err != nil {
+		return nil, err
+	}
+
 	return &Config{
 		cacheSize:      cacheSize,
 		cachePath:      cachePath,
 		requestTimeout: requestTimeout,
+		serverPort:     serverPort,
 	}, nil
 }
 
@@ -64,6 +74,10 @@ func (c *Config) CachePath() string {
 
 func (c *Config) RequestTimeout() time.Duration {
 	return c.requestTimeout
+}
+
+func (c *Config) Port() string {
+	return c.serverPort
 }
 
 // Get cache size from env var.
@@ -146,4 +160,28 @@ func getRequestTimeout(logger *logger.Log) (time.Duration, error) {
 
 	// Convert int to time.Duration, and return.
 	return time.Duration(timeout), nil
+}
+
+// Get server port.
+func getServerPort(logger *logger.Log) (string, error) {
+	env := os.Getenv(serverPort)
+
+	// Check if no env, or empty string.
+	if env == "" {
+		logger.Warn("IMPR_PORT value is empty, set default port " + defaultSereverPort + "MB")
+
+		return defaultSereverPort, nil
+	}
+
+	// Check port number.
+	intPort, err := strconv.Atoi(env)
+	if err != nil {
+		return "", err
+	}
+
+	if intPort < 1 || intPort > 65535 {
+		return "", ErrInvalidPort
+	}
+
+	return env, nil
 }

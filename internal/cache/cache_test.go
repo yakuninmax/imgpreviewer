@@ -69,16 +69,6 @@ func TestCache(t *testing.T) {
 		require.NoDirExists(t, c.storage.Path())
 	})
 
-	t.Run("get absent file", func(t *testing.T) {
-		c, _ := New(path, size, logger)
-
-		_, err := c.Get(testFiles[0].uri)
-
-		require.ErrorIs(t, err, ErrNotFound)
-
-		_ = c.Clean(logger)
-	})
-
 	t.Run("put files to cache", func(t *testing.T) {
 		c, _ := New(path, size, logger)
 
