@@ -5,15 +5,10 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/yakuninmax/imgpreviewer/internal/logger"
+	store "github.com/yakuninmax/imgpreviewer/internal/storage"
 )
 
 func TestCache(t *testing.T) {
-	// Init logger.
-	logger := logger.New()
-
-	path := "/tmp"
-
 	size := int64(500000)
 
 	testFiles := []file{
@@ -59,19 +54,9 @@ func TestCache(t *testing.T) {
 		},
 	}
 
-	t.Run("init and clean cache", func(t *testing.T) {
-		c, err := New(path, size, logger)
-		require.Nil(t, err)
-		require.DirExists(t, c.storage.Path())
-
-		err = c.Clean(logger)
-		require.Nil(t, err)
-		require.NoDirExists(t, c.storage.Path())
-	})
-
 	t.Run("put files to cache", func(t *testing.T) {
-		c, _ := New(path, size, logger)
-
+		s, _ := store.New("/tmp/")
+		c, _ := New(size, s)
 		for _, file := range testFiles {
 			d, _ := os.ReadFile(file.uri)
 
@@ -80,11 +65,12 @@ func TestCache(t *testing.T) {
 			require.Nil(t, err)
 		}
 
-		_ = c.Clean(logger)
+		_ = s.Clean()
 	})
 
 	t.Run("get file from cache", func(t *testing.T) {
-		c, _ := New(path, size, logger)
+		s, _ := store.New("/tmp/")
+		c, _ := New(size, s)
 
 		d, _ := os.ReadFile(testFiles[0].uri)
 		err := c.Put(testFiles[0].uri, d)
@@ -96,24 +82,26 @@ func TestCache(t *testing.T) {
 		require.Nil(t, err)
 		require.Equal(t, d, cd)
 
-		_ = c.Clean(logger)
+		_ = s.Clean()
 	})
 
 	t.Run("put file larger than cache size", func(t *testing.T) {
 		size := int64(1000)
-		c, _ := New(path, size, logger)
+		s, _ := store.New("/tmp/")
+		c, _ := New(size, s)
 
 		d, _ := os.ReadFile(testFiles[0].uri)
 		err := c.Put(testFiles[0].uri, d)
 
 		require.ErrorIs(t, err, ErrFileToLarge)
 
-		_ = c.Clean(logger)
+		_ = s.Clean()
 	})
 
 	t.Run("cache oversize", func(t *testing.T) {
 		size := int64(300000)
-		c, _ := New(path, size, logger)
+		s, _ := store.New("/tmp/")
+		c, _ := New(size, s)
 		//defer c.Clean(logger)
 
 		for _, file := range testFiles {
@@ -124,11 +112,11 @@ func TestCache(t *testing.T) {
 			require.Nil(t, err)
 		}
 
-		s := getDirSize(c.storage.Path())
+		ds := getDirSize(s.Path())
 
-		require.LessOrEqual(t, s, c.size)
+		require.LessOrEqual(t, ds, c.size)
 
-		_ = c.Clean(logger)
+		_ = s.Clean()
 	})
 }
 

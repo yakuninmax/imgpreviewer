@@ -5,28 +5,28 @@ import (
 	"os"
 )
 
-type Log struct {
+type Logger struct {
 	logger *slog.Logger
 }
 
-func New() *Log {
+func New() *Logger {
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
 
-	return &Log{logger: logger}
+	return &Logger{logger: logger}
 }
 
-func (l *Log) Info(message string) {
+func (l *Logger) Info(message string) {
 	l.logger.Info(message)
 }
 
-func (l *Log) Warn(message string) {
+func (l *Logger) Warn(message string) {
 	l.logger.Warn(message)
 }
 
-func (l *Log) Error(message string) {
+func (l *Logger) Error(message string) {
 	l.logger.Error(message)
 }
 
-func (l *Log) Debug(message string) {
+func (l *Logger) Debug(message string) {
 	l.logger.Debug(message)
 }

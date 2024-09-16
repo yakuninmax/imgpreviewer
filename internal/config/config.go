@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
-	"github.com/yakuninmax/imgpreviewer/internal/logger"
 )
 
 const (
@@ -28,6 +27,13 @@ var (
 	ErrInvalidPort              = errors.New("invalid port number")
 )
 
+type logger interface {
+	Info(string)
+	Warn(string)
+	Error(string)
+	Debug(string)
+}
+
 type Config struct {
 	cacheSize      int64
 	cachePath      string
@@ -35,7 +41,7 @@ type Config struct {
 	serverPort     string
 }
 
-func New(logger *logger.Log) (*Config, error) {
+func New(logger logger) (*Config, error) {
 	cacheSize, err := getCacheSize(logger)
 	if err != nil {
 		return nil, err
@@ -81,7 +87,7 @@ func (c *Config) Port() string {
 }
 
 // Get cache size from env var.
-func getCacheSize(logger *logger.Log) (int64, error) {
+func getCacheSize(logger logger) (int64, error) {
 	env := os.Getenv(cacheSizeEnvName)
 
 	// Check if no env, or empty string.
@@ -110,7 +116,7 @@ func getCacheSize(logger *logger.Log) (int64, error) {
 }
 
 // Get cache folder path from env var.
-func getCachePath(logger *logger.Log) (string, error) {
+func getCachePath(logger logger) (string, error) {
 	path := os.Getenv(cacheFolderEnvName)
 
 	if path == "" {
@@ -133,7 +139,7 @@ func getCachePath(logger *logger.Log) (string, error) {
 }
 
 // Get request timeout.
-func getRequestTimeout(logger *logger.Log) (time.Duration, error) {
+func getRequestTimeout(logger logger) (time.Duration, error) {
 	env := os.Getenv(requestTimeoutEnvName)
 
 	// Check if no env, or empty string.
@@ -163,12 +169,12 @@ func getRequestTimeout(logger *logger.Log) (time.Duration, error) {
 }
 
 // Get server port.
-func getServerPort(logger *logger.Log) (string, error) {
+func getServerPort(logger logger) (string, error) {
 	env := os.Getenv(serverPort)
 
 	// Check if no env, or empty string.
 	if env == "" {
-		logger.Warn("IMPR_PORT value is empty, set default port " + defaultSereverPort + "MB")
+		logger.Warn("IMPR_PORT value is empty, set default port " + defaultSereverPort)
 
 		return defaultSereverPort, nil
 	}
