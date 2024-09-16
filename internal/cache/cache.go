@@ -6,9 +6,6 @@ import (
 	"math/rand"
 	"sync"
 	"time"
-
-	"github.com/yakuninmax/imgpreviewer/internal/logger"
-	"github.com/yakuninmax/imgpreviewer/internal/storage"
 )
 
 var (
@@ -16,12 +13,20 @@ var (
 	ErrFileToLarge = errors.New("file size greater than cache size")
 )
 
+type storage interface {
+	Path() string
+	Write(name string, data []byte) error
+	Read(name string) ([]byte, error)
+	Delete(name string) error
+	Clean() error
+}
+
 type Cache struct {
 	mu      *sync.Mutex
 	size    int64
 	queue   *queue
 	files   map[string]*item
-	storage *storage.Storage
+	storage storage
 }
 
 type file struct {
@@ -30,16 +35,8 @@ type file struct {
 	name string
 }
 
-func New(path string, size int64, logger *logger.Log) (*Cache, error) {
+func New(size int64, storage storage) (*Cache, error) {
 	var mutex = sync.Mutex{}
-
-	// Init cache storage.
-	storage, err := storage.New(path)
-	if err != nil {
-		return nil, err
-	}
-
-	logger.Info("temp cache folder is " + storage.Path())
 
 	return &Cache{
 		mu:      &mutex,
@@ -51,32 +48,32 @@ func New(path string, size int64, logger *logger.Log) (*Cache, error) {
 }
 
 // Get file from cache.
-func (c *Cache) Get(uri string) ([]byte, error) {
+func (c *Cache) Get(key string) ([]byte, error) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
 	// Check if file exists.
-	_, exists := c.files[uri]
+	_, exists := c.files[key]
 
 	if !exists {
 		return nil, nil
 	}
 
 	// Read file.
-	image, err := c.storage.Read(c.files[uri].file.name)
+	image, err := c.storage.Read(c.files[key].file.name)
 	if err != nil {
 		return nil, err
 	}
 
 	// Move to front.
-	c.queue.moveToFront(c.files[uri])
-	c.files[uri] = c.queue.getFront()
+	c.queue.moveToFront(c.files[key])
+	c.files[key] = c.queue.getFront()
 
 	return image, nil
 }
 
 // Put file to cache.
-func (c *Cache) Put(uri string, data []byte) error {
+func (c *Cache) Put(key string, data []byte) error {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
@@ -92,7 +89,7 @@ func (c *Cache) Put(uri string, data []byte) error {
 	name := fmt.Sprint(time.Now().Format("20060102150405"), rand.Intn(1000000))
 
 	// New cache file.
-	file := file{uri, size, name}
+	file := file{key, size, name}
 
 	// Check if cache space available, and cleanup.
 	if c.queue.size+size > c.size {
@@ -119,18 +116,7 @@ func (c *Cache) Put(uri string, data []byte) error {
 
 	// Add to queue front.
 	c.queue.pushFront(file)
-	c.files[uri] = c.queue.getFront()
-
-	return nil
-}
-
-func (c *Cache) Clean(logger *logger.Log) error {
-	err := c.storage.Clean()
-	if err != nil {
-		return err
-	}
-
-	logger.Info("temp cache folder " + c.storage.Path() + " deleted")
+	c.files[key] = c.queue.getFront()
 
 	return nil
 }

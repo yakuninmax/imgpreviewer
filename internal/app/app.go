@@ -1,26 +1,41 @@
 package app
 
 import (
-	"strconv"
-	"strings"
-
-	"github.com/yakuninmax/imgpreviewer/internal/cache"
-	"github.com/yakuninmax/imgpreviewer/internal/downloader"
-	"github.com/yakuninmax/imgpreviewer/internal/logger"
-	"github.com/yakuninmax/imgpreviewer/internal/processor"
+	"fmt"
 )
 
+type logger interface {
+	Info(string)
+	Warn(string)
+	Error(string)
+	Debug(string)
+}
+
+type cache interface {
+	Get(uri string) ([]byte, error)
+	Put(uri string, data []byte) error
+}
+
+type downloader interface {
+	GetImage(url string, headers map[string][]string) ([]byte, error)
+}
+
+type processor interface {
+	Crop(data []byte, width, height int) ([]byte, error)
+	Resize(data []byte, width, height int) ([]byte, error)
+}
+
 type App struct {
-	logger     *logger.Log
-	cache      *cache.Cache
-	downloader *downloader.Downloader
-	processor  *processor.Processor
+	logger     logger
+	cache      cache
+	downloader downloader
+	processor  processor
 }
 
 // Init app.
-func New(logger *logger.Log, cache *cache.Cache, downloader *downloader.Downloader, processor *processor.Processor) *App {
+func New(logg logger, cache cache, downloader downloader, processor processor) *App {
 	return &App{
-		logger:     logger,
+		logger:     logg,
 		cache:      cache,
 		downloader: downloader,
 		processor:  processor,
@@ -28,101 +43,84 @@ func New(logger *logger.Log, cache *cache.Cache, downloader *downloader.Download
 }
 
 // Process crop request.
-func (a *App) Crop(uri string, headers map[string]string) ([]byte, error) {
-	// Get request parameters.
-	width, heigth, imageUrl, err := getParameters(uri)
-	if err != nil {
-		return nil, err
-	}
+func (a *App) Crop(width, height int, url string, headers map[string][]string) ([]byte, error) {
+	// Get image cache key
+	cacheKey := getCacheKey(width, height, url, "crop")
 
 	// Get image.
-	img, err := a.getImage(uri, imageUrl, headers)
+	img, cached, err := a.getImage(cacheKey, url, headers)
 	if err != nil {
 		return nil, err
 	}
 
 	// Crop image.
-	croppedImage, err := a.processor.Crop(img, width, heigth)
+	croppedImage, err := a.processor.Crop(img, width, height)
 	if err != nil {
 		return nil, err
 	}
 
-	// Put image to cache.
-	err = a.cache.Put(uri, croppedImage)
-	if err != nil {
-		return nil, err
+	// Put image to cache if it not from cache.
+	if !cached {
+		err = a.cache.Put(cacheKey, croppedImage)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	return croppedImage, nil
 }
 
 // Process resize request.
-func (a *App) Resize(uri string, headers map[string]string) ([]byte, error) {
-	// Get request parameters.
-	width, heigth, imageUrl, err := getParameters(uri)
-	if err != nil {
-		return nil, err
-	}
+func (a *App) Resize(width, height int, url string, headers map[string][]string) ([]byte, error) {
+	// Get image cache key
+	cacheKey := getCacheKey(width, height, url, "resize")
 
 	// Get image.
-	img, err := a.getImage(uri, imageUrl, headers)
+	img, cached, err := a.getImage(cacheKey, url, headers)
 	if err != nil {
 		return nil, err
 	}
 
 	// Resize image.
-	resizedImage, err := a.processor.Resize(img, width, heigth)
+	resizedImage, err := a.processor.Resize(img, width, height)
 	if err != nil {
 		return nil, err
 	}
 
-	// Put image to cache.
-	err = a.cache.Put(uri, resizedImage)
-	if err != nil {
-		return nil, err
+	// Put image to cache if it not from cache.
+	if !cached {
+		err = a.cache.Put(cacheKey, resizedImage)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	return resizedImage, nil
 }
 
-// Get request parameters.
-func getParameters(uri string) (int, int, string, error) {
-	// Split by "/".
-	subStrings := strings.SplitN(uri, "/", 3)
-
-	// Get width.
-	width, err := strconv.Atoi(subStrings[0])
-	if err != nil {
-		return 0, 0, "", err
-	}
-
-	// Get heigth.
-	heigth, err := strconv.Atoi(subStrings[1])
-	if err != nil {
-		return 0, 0, "", err
-	}
-
-	return width, heigth, subStrings[2], nil
+// Get image cache key.
+func getCacheKey(width, height int, url, action string) string {
+	return fmt.Sprintf("%d-%d-%s-%s", width, height, url, action)
 }
 
 // Get image.
-func (a *App) getImage(uri, imageUrl string, headers map[string]string) ([]byte, error) {
+func (a *App) getImage(cacheKey, url string, headers map[string][]string) ([]byte, bool, error) {
 	// Search in cache.
-	data, err := a.cache.Get(uri)
+	data, err := a.cache.Get(cacheKey)
 	if err != nil {
-		return nil, err
+		return nil, false, err
 	}
 
-	// If image found in cache.
+	// If image found in cache, return it.
 	if data != nil {
-		return data, nil
+		return data, true, nil
 	}
 
 	// If not found in cache, download image.
-	data, err = a.downloader.GetImage(imageUrl, headers)
+	data, err = a.downloader.GetImage(url, headers)
 	if err != nil {
-		return nil, err
+		return nil, false, err
 	}
 
-	return data, nil
+	return data, false, nil
 }

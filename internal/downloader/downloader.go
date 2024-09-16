@@ -2,6 +2,7 @@ package downloader
 
 import (
 	"errors"
+	"fmt"
 	"io"
 	"net/http"
 	"time"
@@ -23,22 +24,25 @@ func New(timeout time.Duration) *Downloader {
 }
 
 // Get image.
-func (d *Downloader) GetImage(url string, headers map[string]string) ([]byte, error) {
+func (d *Downloader) GetImage(url string, headers map[string][]string) ([]byte, error) {
 	// Create request.
 	request, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	// Add headers for request.
-	for key, value := range headers {
-		request.Header.Add(key, value)
-	}
+	// Copy request headers.
+	request.Header = headers
 
 	// Send request.
 	response, err := http.DefaultClient.Do(request)
 	if err != nil {
 		return nil, err
+	}
+
+	// Check response status.
+	if response.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("error from remote server: " + response.Status)
 	}
 
 	// Get body bytes.

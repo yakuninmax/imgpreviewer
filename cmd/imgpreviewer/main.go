@@ -1,8 +1,13 @@
 package main
 
 import (
-	"fmt"
+	"context"
+	"errors"
+	"net/http"
 	"os"
+	"os/signal"
+	"syscall"
+	"time"
 
 	"github.com/yakuninmax/imgpreviewer/internal/app"
 	"github.com/yakuninmax/imgpreviewer/internal/cache"
@@ -10,49 +15,77 @@ import (
 	"github.com/yakuninmax/imgpreviewer/internal/downloader"
 	"github.com/yakuninmax/imgpreviewer/internal/logger"
 	"github.com/yakuninmax/imgpreviewer/internal/processor"
+	"github.com/yakuninmax/imgpreviewer/internal/server"
+	"github.com/yakuninmax/imgpreviewer/internal/storage"
 )
 
 func main() {
 	// Init logger.
-	l := logger.New()
+	logg := logger.New()
 
 	// Get config.
-	conf, err := config.New(l)
+	conf, err := config.New(logg)
 	if err != nil {
-		l.Error(err.Error())
+		logg.Error(err.Error())
 		os.Exit(1)
 	}
 
-	// Init cache.
-	c, err := cache.New(conf.CachePath(), conf.CacheSize(), l)
+	// Init cache storage.
+	store, err := storage.New(conf.CachePath())
 	if err != nil {
-		l.Error(err.Error())
+		logg.Error(err.Error())
 		os.Exit(1)
 	}
 	defer func() {
-		err := c.Clean(l)
+		err := store.Clean()
 		if err != nil {
-			l.Error(err.Error())
+			logg.Error(err.Error())
 			os.Exit(1)
+		}
+		logg.Info("cache cleared")
+	}()
+	logg.Info("temp cache folder is " + conf.CachePath())
+
+	// Init cache.
+	cache, err := cache.New(conf.CacheSize(), store)
+	if err != nil {
+		logg.Error(err.Error())
+		os.Exit(1)
+	}
+
+	// Init downloader.
+	dl := downloader.New(conf.RequestTimeout())
+
+	// Init processor.
+	proc := processor.New()
+
+	// Init app.
+	app := app.New(logg, cache, dl, proc)
+
+	// Init server.
+	srv := server.New(conf.Port(), app, logg)
+
+	go func() {
+		logg.Info("starting server")
+		err := srv.Start()
+		if err != nil && !errors.Is(err, http.ErrServerClosed) {
+			logg.Error(err.Error())
+			os.Exit(1)
+		} else {
+			logg.Info("stopped serving new connections")
 		}
 	}()
 
-	// Init downloader.
-	d := downloader.New(conf.RequestTimeout())
+	sigChan := make(chan os.Signal, 1)
+	signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM)
+	<-sigChan
 
-	// Init processor.
-	p := processor.New()
+	shutdownCtx, shutdownRelease := context.WithTimeout(context.Background(), 5*time.Second)
+	defer shutdownRelease()
 
-	// Init app.
-	app := app.New(l, c, d, p)
-
-	headers := make(map[string]string)
-	headers["Accept"] = "text/html"
-	headers["Content-Type"] = "text/html; charset=utf-8"
-
-	_, err = app.Crop("500/300/https://filesamples.com/samples/image/jpeg/sample_1920%C3%971280.jpeg", headers)
-	if err != nil {
-		fmt.Println(err.Error())
+	if err := srv.Stop(shutdownCtx); err != nil {
+		logg.Error(err.Error())
 		os.Exit(1)
 	}
+	logg.Info("graceful shutdown complete")
 }
