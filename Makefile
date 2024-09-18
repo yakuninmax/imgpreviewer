@@ -3,7 +3,8 @@ DOCKER_IMG="imgpreviewer"
 GIT_HASH := $(shell git log --format="%h" -n 1)
 
 install-lint-deps:
-	(which golangci-lint > /dev/null) || curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(shell go env GOPATH)/bin v1.60.3
+	(which golangci-lint > /dev/null) || curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(shell go env GOPATH)/bin
+	golangci-lint --version
 
 lint: install-lint-deps
 	golangci-lint run ./...
