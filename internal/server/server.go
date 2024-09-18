@@ -2,20 +2,14 @@ package server
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"net/http"
-	"strconv"
 	"time"
 )
 
-var (
-	ErrNotEnoughParameters = errors.New("not enough parameters")
-)
-
 type app interface {
-	Crop(width, height int, url string, headers map[string][]string) ([]byte, error)
-	Resize(width, height int, url string, headers map[string][]string) ([]byte, error)
+	Crop(width, height, url string, headers map[string][]string) ([]byte, error)
+	Resize(width, height, url string, headers map[string][]string) ([]byte, error)
 }
 
 type logger interface {
@@ -76,16 +70,10 @@ func (s *Server) Stop(ctx context.Context) error {
 
 // Crop handler.
 func (s *Server) cropHandler(w http.ResponseWriter, r *http.Request) {
-	// Get request parameters.
-	width, height, url, err := getParameters(r.PathValue("width"), r.PathValue("height"), r.PathValue("url"))
-	if err != nil {
-		s.logger.Error(err.Error())
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
-	}
+	s.logger.Debug("incoming request: " + r.URL.String())
 
 	// Process image.
-	image, err := s.app.Crop(width, height, url, r.Header)
+	croppedImage, err := s.app.Crop(r.PathValue("width"), r.PathValue("height"), r.PathValue("url"), r.Header)
 	if err != nil {
 		s.logger.Error(err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -94,26 +82,22 @@ func (s *Server) cropHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Return image.
 	w.Header().Set("Content-Type", "application/octet-stream")
-	_, err = w.Write(image)
+	_, err = w.Write(croppedImage)
 	if err != nil {
 		s.logger.Error(err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	s.logger.Debug("request " + r.URL.String() + " successfully processed")
 }
 
 // Resize handler.
 func (s *Server) resizeHandler(w http.ResponseWriter, r *http.Request) {
-	// Get request parameters.
-	width, height, url, err := getParameters(r.PathValue("width"), r.PathValue("height"), r.PathValue("url"))
-	if err != nil {
-		s.logger.Error(err.Error())
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
-	}
+	s.logger.Debug("incoming request: " + r.URL.String())
 
 	// Process image.
-	image, err := s.app.Resize(width, height, url, r.Header)
+	resizedImage, err := s.app.Resize(r.PathValue("width"), r.PathValue("height"), r.PathValue("url"), r.Header)
 	if err != nil {
 		s.logger.Error(err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -122,35 +106,12 @@ func (s *Server) resizeHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Return image.
 	w.Header().Set("Content-Type", "application/octet-stream")
-	_, err = w.Write(image)
+	_, err = w.Write(resizedImage)
 	if err != nil {
 		s.logger.Error(err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-}
 
-// Get request parameters.
-func getParameters(width, height, imageUrl string) (int, int, string, error) {
-	// Check if parameters are not empty.
-	if width == "" || height == "" || imageUrl == "" {
-		return 0, 0, "", ErrNotEnoughParameters
-	}
-
-	// Get width.
-	w, err := strconv.Atoi(width)
-	if err != nil {
-		return 0, 0, "", err
-	}
-
-	// Get heigth.
-	h, err := strconv.Atoi(height)
-	if err != nil {
-		return 0, 0, "", err
-	}
-
-	// Add scheme to url.
-	u := "http://" + imageUrl
-
-	return w, h, u, nil
+	s.logger.Debug("request " + r.URL.String() + " successfully processed")
 }

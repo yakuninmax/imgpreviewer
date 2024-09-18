@@ -102,7 +102,6 @@ func TestCache(t *testing.T) {
 		size := int64(300000)
 		s, _ := store.New("/tmp/")
 		c, _ := New(size, s)
-		//defer c.Clean(logger)
 
 		for _, file := range testFiles {
 			d, _ := os.ReadFile(file.uri)

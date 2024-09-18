@@ -27,7 +27,7 @@ func (q *queue) getBack() *item {
 }
 
 // Insert item to first position.
-func (q *queue) pushFront(file file) *item {
+func (q *queue) pushFront(file file) {
 	// New item.
 	item := new(item)
 	item.file = file
@@ -43,9 +43,7 @@ func (q *queue) pushFront(file file) *item {
 	// New item first.
 	q.front = item
 
-	q.size = q.size + file.size
-
-	return item
+	q.size += file.size
 }
 
 // Remove item.
@@ -76,7 +74,7 @@ func (q *queue) remove(item *item) {
 		prev.next = next
 	}
 
-	q.size = q.size - item.file.size
+	q.size -= item.file.size
 }
 
 // Move item to front.
