@@ -58,7 +58,7 @@ func (p *Processor) Resize(data []byte, width, height int) ([]byte, error) {
 	}
 
 	// Resize image.
-	resizedImage := resize.Resize(uint(width), uint(height), img, resize.Lanczos3)
+	resizedImage := resize.Resize(uint(width), uint(height), img, resize.Lanczos3) //nolint:gosec // disable G115
 
 	// Convert image to bytes.
 	data, err = imageToBytes(resizedImage)
