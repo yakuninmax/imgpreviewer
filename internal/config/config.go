@@ -92,7 +92,8 @@ func getCacheSize(logger logger) (int64, error) {
 
 	// Check if no env, or empty string.
 	if env == "" {
-		logger.Warn("IMPR_CACHE_SIZE value is empty, set default cache size " + strconv.Itoa(defaultCacheSize/1024/1024) + "MB")
+		logger.Warn("IMPR_CACHE_SIZE value is empty, set default cache size " +
+			strconv.Itoa(defaultCacheSize/1024/1024) + "MB")
 
 		return defaultCacheSize, nil
 	}
@@ -144,7 +145,8 @@ func getRequestTimeout(logger logger) (time.Duration, error) {
 
 	// Check if no env, or empty string.
 	if env == "" {
-		logger.Warn("IMPR_REQ_TIMEOUT value is empty, set default request timeout " + strconv.Itoa(defaultRequestTimeout) + " seconds")
+		logger.Warn("IMPR_REQ_TIMEOUT value is empty, set default request timeout " +
+			strconv.Itoa(defaultRequestTimeout) + " seconds")
 
 		return time.Duration(defaultRequestTimeout), nil
 	}

@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"errors"
+	"log"
 	"net/http"
 	"os"
 	"os/signal"
@@ -21,7 +22,10 @@ import (
 
 func main() {
 	// Init logger.
-	logg := logger.New()
+	logg, err := logger.New()
+	if err != nil {
+		log.Fatalln(err.Error())
+	}
 
 	// Get config.
 	conf, err := config.New(logg)
@@ -50,7 +54,7 @@ func main() {
 	cache, err := cache.New(conf.CacheSize(), store)
 	if err != nil {
 		logg.Error(err.Error())
-		os.Exit(1)
+		panic(err.Error())
 	}
 
 	// Init downloader.
@@ -70,10 +74,10 @@ func main() {
 		err := srv.Start()
 		if err != nil && !errors.Is(err, http.ErrServerClosed) {
 			logg.Error(err.Error())
-			os.Exit(1)
-		} else {
-			logg.Info("stopped serving new connections")
+			panic(err.Error())
 		}
+
+		logg.Info("stopped serving new connections")
 	}()
 
 	sigChan := make(chan os.Signal, 1)
@@ -85,7 +89,7 @@ func main() {
 
 	if err := srv.Stop(shutdownCtx); err != nil {
 		logg.Error(err.Error())
-		os.Exit(1)
+		panic(err.Error())
 	}
 	logg.Info("graceful shutdown complete")
 }

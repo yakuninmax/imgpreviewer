@@ -1,6 +1,7 @@
 package downloader
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"io"
@@ -8,9 +9,7 @@ import (
 	"time"
 )
 
-var (
-	ErrInvalidFileType = errors.New("invalid file type")
-)
+var ErrInvalidFileType = errors.New("invalid file type")
 
 type Downloader struct {
 	client *http.Client
@@ -25,8 +24,11 @@ func New(timeout time.Duration) *Downloader {
 
 // Get image.
 func (d *Downloader) GetImage(url string, headers map[string][]string) ([]byte, error) {
+	// Create request context.
+	ctx := context.Background()
+
 	// Create request.
-	request, err := http.NewRequest(http.MethodGet, url, nil)
+	request, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -39,10 +41,11 @@ func (d *Downloader) GetImage(url string, headers map[string][]string) ([]byte, 
 	if err != nil {
 		return nil, err
 	}
+	defer response.Body.Close()
 
 	// Check response status.
 	if response.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("error from remote server: " + response.Status)
+		return nil, fmt.Errorf("error from remote server: %v", response.Status)
 	}
 
 	// Get body bytes.

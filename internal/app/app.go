@@ -1,8 +1,12 @@
 package app
 
 import (
+	"errors"
 	"fmt"
+	"strconv"
 )
+
+var ErrNotEnoughParameters = errors.New("not enough parameters")
 
 type logger interface {
 	Info(string)
@@ -43,9 +47,15 @@ func New(logg logger, cache cache, downloader downloader, processor processor) *
 }
 
 // Process crop request.
-func (a *App) Crop(width, height int, url string, headers map[string][]string) ([]byte, error) {
+func (a *App) Crop(width, height, url string, headers map[string][]string) ([]byte, error) {
+	// Get request parameters.
+	w, h, u, err := getParameters(width, height, url)
+	if err != nil {
+		return nil, err
+	}
+
 	// Get image cache key
-	cacheKey := getCacheKey(width, height, url, "crop")
+	cacheKey := getCacheKey(w, h, u, "crop")
 
 	// Get image.
 	img, cached, err := a.getImage(cacheKey, url, headers)
@@ -54,7 +64,7 @@ func (a *App) Crop(width, height int, url string, headers map[string][]string) (
 	}
 
 	// Crop image.
-	croppedImage, err := a.processor.Crop(img, width, height)
+	croppedImage, err := a.processor.Crop(img, w, h)
 	if err != nil {
 		return nil, err
 	}
@@ -65,15 +75,23 @@ func (a *App) Crop(width, height int, url string, headers map[string][]string) (
 		if err != nil {
 			return nil, err
 		}
+
+		a.logger.Debug("image " + url + " saved to cache")
 	}
 
 	return croppedImage, nil
 }
 
 // Process resize request.
-func (a *App) Resize(width, height int, url string, headers map[string][]string) ([]byte, error) {
+func (a *App) Resize(width, height, url string, headers map[string][]string) ([]byte, error) {
+	// Get request parameters.
+	w, h, u, err := getParameters(width, height, url)
+	if err != nil {
+		return nil, err
+	}
+
 	// Get image cache key
-	cacheKey := getCacheKey(width, height, url, "resize")
+	cacheKey := getCacheKey(w, h, u, "resize")
 
 	// Get image.
 	img, cached, err := a.getImage(cacheKey, url, headers)
@@ -82,7 +100,7 @@ func (a *App) Resize(width, height int, url string, headers map[string][]string)
 	}
 
 	// Resize image.
-	resizedImage, err := a.processor.Resize(img, width, height)
+	resizedImage, err := a.processor.Resize(img, w, h)
 	if err != nil {
 		return nil, err
 	}
@@ -93,14 +111,11 @@ func (a *App) Resize(width, height int, url string, headers map[string][]string)
 		if err != nil {
 			return nil, err
 		}
+
+		a.logger.Debug("image " + url + " saved to cache")
 	}
 
 	return resizedImage, nil
-}
-
-// Get image cache key.
-func getCacheKey(width, height int, url, action string) string {
-	return fmt.Sprintf("%d-%d-%s-%s", width, height, url, action)
 }
 
 // Get image.
@@ -113,14 +128,48 @@ func (a *App) getImage(cacheKey, url string, headers map[string][]string) ([]byt
 
 	// If image found in cache, return it.
 	if data != nil {
+		a.logger.Debug("image " + url + " found in cache")
 		return data, true, nil
 	}
 
+	a.logger.Debug("image " + url + " not found in cache, trying to download")
 	// If not found in cache, download image.
 	data, err = a.downloader.GetImage(url, headers)
 	if err != nil {
 		return nil, false, err
 	}
 
+	a.logger.Debug("image " + url + " successfully downloaded")
+
 	return data, false, nil
+}
+
+// Get image cache key.
+func getCacheKey(width, height int, url, action string) string {
+	return fmt.Sprintf("%d-%d-%s-%s", width, height, url, action)
+}
+
+// Check request parameters.
+func getParameters(width, height, imageURL string) (int, int, string, error) {
+	// Check if parameters are not empty.
+	if width == "" || height == "" || imageURL == "" {
+		return 0, 0, "", ErrNotEnoughParameters
+	}
+
+	// Get width.
+	w, err := strconv.Atoi(width)
+	if err != nil {
+		return 0, 0, "", err
+	}
+
+	// Get heigth.
+	h, err := strconv.Atoi(height)
+	if err != nil {
+		return 0, 0, "", err
+	}
+
+	// Add scheme to url.
+	u := "http://" + imageURL
+
+	return w, h, u, nil
 }

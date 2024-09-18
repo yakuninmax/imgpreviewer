@@ -1,9 +1,10 @@
 package cache
 
 import (
+	"crypto/rand"
 	"errors"
 	"fmt"
-	"math/rand"
+	"math/big"
 	"sync"
 	"time"
 )
@@ -36,7 +37,7 @@ type file struct {
 }
 
 func New(size int64, storage storage) (*Cache, error) {
-	var mutex = sync.Mutex{}
+	mutex := sync.Mutex{}
 
 	return &Cache{
 		mu:      &mutex,
@@ -85,8 +86,14 @@ func (c *Cache) Put(key string, data []byte) error {
 		return ErrFileToLarge
 	}
 
+	// Get random number for file name.
+	random, err := rand.Int(rand.Reader, big.NewInt(1000))
+	if err != nil {
+		return err
+	}
+
 	// Get random file name.
-	name := fmt.Sprint(time.Now().Format("20060102150405"), rand.Intn(1000000))
+	name := fmt.Sprint(time.Now().Format("20060102150405"), random)
 
 	// New cache file.
 	file := file{key, size, name}
@@ -109,7 +116,7 @@ func (c *Cache) Put(key string, data []byte) error {
 	}
 
 	// Write file.
-	err := c.storage.Write(file.name, data)
+	err = c.storage.Write(file.name, data)
 	if err != nil {
 		return err
 	}

@@ -9,9 +9,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-var (
-	ErrPathIsNotDir = errors.New("given path is not a dir")
-)
+var ErrPathIsNotDir = errors.New("given path is not a dir")
 
 type Storage struct {
 	path string
@@ -36,7 +34,8 @@ func (s *Storage) Path() string {
 // Write file to storage.
 func (s *Storage) Write(name string, data []byte) error {
 	filePath := filepath.Join(s.path, name)
-	err := os.WriteFile(filePath, data, os.ModePerm)
+
+	err := os.WriteFile(filePath, data, os.ModePerm.Perm())
 	if err != nil {
 		return fmt.Errorf("failed to write file: %w", err)
 	}

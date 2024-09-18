@@ -9,9 +9,7 @@ import (
 	"github.com/nfnt/resize"
 )
 
-var (
-	ErrInvalidSize = errors.New("target size is larger than original")
-)
+var ErrInvalidSize = errors.New("target size is larger than original")
 
 type Processor struct{}
 
@@ -27,7 +25,7 @@ func (p *Processor) Crop(data []byte, width, height int) ([]byte, error) {
 		return nil, err
 	}
 
-	// Check if destination size is larger than originsl.
+	// Check if destination size is larger than original.
 	if width > img.Bounds().Dx() || height > img.Bounds().Dy() {
 		return nil, ErrInvalidSize
 	}
