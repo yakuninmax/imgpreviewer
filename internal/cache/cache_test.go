@@ -106,7 +106,6 @@ func TestCache(t *testing.T) {
 		for _, file := range testFiles {
 			d, _ := os.ReadFile(file.url)
 
-			//fmt.Println(c.queue.size)
 			err := c.Put(file.url, d)
 
 			require.Nil(t, err)

@@ -1,5 +1,9 @@
 run:
   tests: true
+output:
+  formats:
+    - format: colored-line-number
+      path: stdout
 
 linters-settings:
   funlen:
