@@ -1,10 +1,7 @@
 package cache
 
 import (
-	"crypto/rand"
 	"errors"
-	"fmt"
-	"math/big"
 	"sync"
 	"time"
 )
@@ -31,16 +28,16 @@ type Cache struct {
 }
 
 type file struct {
-	uri  string
+	url  string
 	size int64 // image size in bytes
 	name string
 }
 
 func New(size int64, storage storage) (*Cache, error) {
-	mutex := sync.Mutex{}
+	mutex := &sync.Mutex{}
 
 	return &Cache{
-		mu:      &mutex,
+		mu:      mutex,
 		size:    size,
 		queue:   newQueue(),
 		files:   make(map[string]*item),
@@ -86,14 +83,8 @@ func (c *Cache) Put(key string, data []byte) error {
 		return ErrFileToLarge
 	}
 
-	// Get random number for file name.
-	random, err := rand.Int(rand.Reader, big.NewInt(1000))
-	if err != nil {
-		return err
-	}
-
-	// Get random file name.
-	name := fmt.Sprint(time.Now().Format("20060102150405"), random)
+	// Get file name from time.
+	name := time.Now().Format("20060102150405.000000000")
 
 	// New cache file.
 	file := file{key, size, name}
@@ -106,7 +97,7 @@ func (c *Cache) Put(key string, data []byte) error {
 				return err
 			}
 
-			delete(c.files, c.queue.getBack().file.uri)
+			delete(c.files, c.queue.getBack().file.url)
 			c.queue.remove(c.queue.back)
 
 			if c.queue.size+size <= c.size {
@@ -116,7 +107,7 @@ func (c *Cache) Put(key string, data []byte) error {
 	}
 
 	// Write file.
-	err = c.storage.Write(file.name, data)
+	err := c.storage.Write(file.name, data)
 	if err != nil {
 		return err
 	}

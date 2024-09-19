@@ -1,0 +1,1702 @@
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756295
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756123
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756941
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756108
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756793
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756104
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756961
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756927
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756737
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756668
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756199
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756595
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756662
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756127
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756415
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/2024091917375616
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756538
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756267
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756502
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756338
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756420
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756351
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756418
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756685
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756458
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/2024091917375658
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756216
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756510
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756100
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756684
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756316
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756347
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756451
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/2024091917375652
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756233
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/2024091917375641
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756648
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756596
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/2024091917375659
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756592
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756191
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756480
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756657
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756249
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756723
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756343
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756773
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756600
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756100
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756783
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756882
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756180
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756248
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756704
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756643
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756333
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756986
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756921
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756853
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756507
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756794
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756808
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756667
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756889
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/2024091917375671
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/2024091917375664
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756149
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756934
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756422
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756265
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756228
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756312
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756314
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756657
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/2024091917375625
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756372
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756795
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756964
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756917
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756495
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/2024091917375632
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756502
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756920
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756552
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756257
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756735
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756738
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756246
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756928
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756342
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756805
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756904
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756512
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756532
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756686
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756357
+--- PASS: TestCache (0.01s)
+    --- PASS: TestCache/cache_oversize (0.01s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756376
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756831
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/20240919173756922
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+=== RUN   TestCache
+=== RUN   TestCache/cache_oversize
+    cache_test.go:107: /tmp/test/2024091917375665
+--- PASS: TestCache (0.00s)
+    --- PASS: TestCache/cache_oversize (0.00s)
+=== RUN   TestQueue
+=== RUN   TestQueue/empty_queue
+=== RUN   TestQueue/push_item_to_empty_queue
+=== RUN   TestQueue/push_multiple_items
+=== RUN   TestQueue/move_items_to_front
+=== RUN   TestQueue/remove_items
+--- PASS: TestQueue (0.00s)
+    --- PASS: TestQueue/empty_queue (0.00s)
+    --- PASS: TestQueue/push_item_to_empty_queue (0.00s)
+    --- PASS: TestQueue/push_multiple_items (0.00s)
+    --- PASS: TestQueue/move_items_to_front (0.00s)
+    --- PASS: TestQueue/remove_items (0.00s)
+PASS
+ok  	github.com/yakuninmax/imgpreviewer/internal/cache	1.309s

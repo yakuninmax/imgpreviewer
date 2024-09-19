@@ -77,10 +77,9 @@ func (s *Storage) Clean() error {
 
 // Create cache temp folder.
 func createFolder(path string) (string, error) {
-	// Get temp dir name for cache at given path.
-	// Use current date as temp dir name.
-	date := time.Now().Format("20060102150405")
-	tempDirPath := filepath.Join(path, date)
+	// Get dir name from time.
+	dirName := time.Now().Format("20060102150405.00000000")
+	tempDirPath := filepath.Join(path, dirName)
 
 	// Check if given path exists.
 	stat, err := os.Stat(path)
