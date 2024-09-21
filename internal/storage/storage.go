@@ -1,10 +1,11 @@
 package storage
 
 import (
+	"crypto/rand"
 	"fmt"
+	"math/big"
 	"os"
 	"path/filepath"
-	"time"
 
 	"github.com/pkg/errors"
 )
@@ -78,7 +79,11 @@ func (s *Storage) Clean() error {
 // Create cache temp folder.
 func createFolder(path string) (string, error) {
 	// Get dir name from time.
-	dirName := time.Now().Format("20060102150405.00000000")
+	dirName, err := getRandomName()
+	if err != nil {
+		return "", err
+	}
+
 	tempDirPath := filepath.Join(path, dirName)
 
 	// Check if given path exists.
@@ -98,4 +103,21 @@ func createFolder(path string) (string, error) {
 	}
 
 	return tempDirPath, nil
+}
+
+func getRandomName() (string, error) {
+	alphabet := "abcdefghijklmnopqrstuvwxyz0123456789"
+
+	var name string
+
+	for i := 0; i < 8; i++ {
+		n, err := rand.Int(rand.Reader, big.NewInt(int64(len(alphabet))))
+		if err != nil {
+			return "", err
+		}
+
+		name += string(alphabet[int(n.Int64())])
+	}
+
+	return name, nil
 }

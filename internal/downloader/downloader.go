@@ -45,7 +45,7 @@ func (d *Downloader) GetImage(url string, headers map[string][]string) ([]byte, 
 
 	// Check response status.
 	if response.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("error from remote server: %v", response.Status)
+		return nil, fmt.Errorf(response.Status)
 	}
 
 	// Get body bytes.

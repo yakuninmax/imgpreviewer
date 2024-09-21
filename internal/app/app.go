@@ -58,7 +58,7 @@ func (a *App) Crop(width, height, url string, headers map[string][]string) ([]by
 	cacheKey := getCacheKey(w, h, u, "crop")
 
 	// Get image.
-	img, cached, err := a.getImage(cacheKey, url, headers)
+	img, cached, err := a.getImage(cacheKey, u, headers)
 	if err != nil {
 		return nil, err
 	}
@@ -94,7 +94,7 @@ func (a *App) Resize(width, height, url string, headers map[string][]string) ([]
 	cacheKey := getCacheKey(w, h, u, "resize")
 
 	// Get image.
-	img, cached, err := a.getImage(cacheKey, url, headers)
+	img, cached, err := a.getImage(cacheKey, u, headers)
 	if err != nil {
 		return nil, err
 	}

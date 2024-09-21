@@ -1,9 +1,10 @@
 package cache
 
 import (
+	"crypto/sha256"
 	"errors"
+	"fmt"
 	"sync"
-	"time"
 )
 
 var (
@@ -83,8 +84,8 @@ func (c *Cache) Put(key string, data []byte) error {
 		return ErrFileToLarge
 	}
 
-	// Get file name from time.
-	name := time.Now().Format("20060102150405.000000000")
+	// Get file name as hash of key (url).
+	name := fmt.Sprintf("%x", sha256.Sum256([]byte(key)))
 
 	// New cache file.
 	file := file{key, size, name}
