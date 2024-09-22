@@ -76,7 +76,7 @@ func (s *Server) cropHandler(w http.ResponseWriter, r *http.Request) {
 	croppedImage, err := s.app.Crop(r.PathValue("width"), r.PathValue("height"), r.PathValue("url"), r.Header)
 	if err != nil {
 		s.logger.Error(err.Error())
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusBadGateway)
 		return
 	}
 
@@ -100,7 +100,7 @@ func (s *Server) resizeHandler(w http.ResponseWriter, r *http.Request) {
 	resizedImage, err := s.app.Resize(r.PathValue("width"), r.PathValue("height"), r.PathValue("url"), r.Header)
 	if err != nil {
 		s.logger.Error(err.Error())
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusBadGateway)
 		return
 	}
 
