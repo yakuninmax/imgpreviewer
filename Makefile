@@ -12,11 +12,16 @@ lint: install-lint-deps
 test:
 	go test -race -count 100 ./internal/...
 
+integration-test:
+	docker compose --file docker-compose.test.yaml up --detach --build
+	go test -tags=integration ./tests/integration/
+	docker compose --file docker-compose.test.yaml down
+
 build:
 	go build -v -o $(BIN) ./cmd/imgpreviewer
 
 run:
-	docker compose --file deployments/docker-compose.yaml up --detach
+	docker compose up --detach --build
 
 build-image:
 	docker build -t $(DOCKER_IMG):$(GIT_HASH) .
@@ -24,4 +29,4 @@ build-image:
 run-image: build-image
 	docker run $(DOCKER_IMG):$(GIT_HASH)
 
-.PHONY: build run build-image run-image test lint
+.PHONY: build run build-image run-image test integration-test lint

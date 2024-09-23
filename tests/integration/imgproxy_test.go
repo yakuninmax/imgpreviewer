@@ -1,3 +1,6 @@
+//go:build integration
+// +build integration
+
 package integration_test
 
 import (
@@ -24,7 +27,7 @@ func (p *ProxySuite) SetupSuite() {
 }
 
 func (p *ProxySuite) TestImageNotFound() {
-	response, err := p.client.Get(proxyAddr + "crop/100/200/nginx/fakeimage.jpg")
+	response, err := p.client.Get(proxyAddr + "fill/100/200/nginx/fakeimage.jpg")
 	p.Require().NoError(err)
 	p.Require().Equal(502, response.StatusCode)
 
@@ -36,7 +39,7 @@ func (p *ProxySuite) TestImageNotFound() {
 }
 
 func (p *ProxySuite) TestServerConnectionError() {
-	response, err := p.client.Get(proxyAddr + "crop/100/200/fake.serv/fakeimage.jpg")
+	response, err := p.client.Get(proxyAddr + "fill/100/200/fake.serv/fakeimage.jpg")
 	p.Require().NoError(err)
 	p.Require().Equal(502, response.StatusCode)
 
@@ -48,7 +51,7 @@ func (p *ProxySuite) TestServerConnectionError() {
 }
 
 func (p *ProxySuite) TestRemoteServerError() {
-	response, err := p.client.Get(proxyAddr + "crop/100/200/nginx/error")
+	response, err := p.client.Get(proxyAddr + "fill/100/200/nginx/error")
 	p.Require().NoError(err)
 	p.Require().Equal(502, response.StatusCode)
 
@@ -60,7 +63,7 @@ func (p *ProxySuite) TestRemoteServerError() {
 }
 
 func (p *ProxySuite) TestInvalidFileType() {
-	response, err := p.client.Get(proxyAddr + "crop/100/200/nginx/text.file")
+	response, err := p.client.Get(proxyAddr + "fill/100/200/nginx/text.file")
 	p.Require().NoError(err)
 	p.Require().Equal(502, response.StatusCode)
 
@@ -72,7 +75,7 @@ func (p *ProxySuite) TestInvalidFileType() {
 }
 
 func (p *ProxySuite) TestInvalidImageSize() {
-	response, err := p.client.Get(proxyAddr + "crop/3000/5000/nginx/_gopher_original_1024x504.jpg")
+	response, err := p.client.Get(proxyAddr + "fill/3000/5000/nginx/_gopher_original_1024x504.jpg")
 	p.Require().NoError(err)
 	p.Require().Equal(502, response.StatusCode)
 
@@ -85,7 +88,7 @@ func (p *ProxySuite) TestInvalidImageSize() {
 
 func (p *ProxySuite) TestCustomHeaderPass() {
 	ctx := context.Background()
-	request, err := http.NewRequestWithContext(ctx, http.MethodGet, proxyAddr+"crop/100/200/nginx/protected/_gopher_original_1024x504.jpg", nil)
+	request, err := http.NewRequestWithContext(ctx, http.MethodGet, proxyAddr+"fill/100/200/nginx/protected/_gopher_original_1024x504.jpg", nil)
 	p.Require().NoError(err)
 
 	request.Header.Add("Authorization", "Basic "+base64.StdEncoding.EncodeToString([]byte("testuser:testpass")))
@@ -99,7 +102,7 @@ func (p *ProxySuite) TestCustomHeaderPass() {
 }
 
 func (p *ProxySuite) TestSuccessfullProcessing() {
-	response, err := p.client.Get(proxyAddr + "crop/100/200/nginx/_gopher_original_1024x504.jpg")
+	response, err := p.client.Get(proxyAddr + "fill/100/200/nginx/_gopher_original_1024x504.jpg")
 	p.Require().NoError(err)
 	p.Require().Equal(200, response.StatusCode)
 	p.Require().NoError(err)

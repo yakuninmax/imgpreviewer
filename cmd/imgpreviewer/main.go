@@ -15,7 +15,6 @@ import (
 	"github.com/yakuninmax/imgpreviewer/internal/config"
 	"github.com/yakuninmax/imgpreviewer/internal/downloader"
 	"github.com/yakuninmax/imgpreviewer/internal/logger"
-	"github.com/yakuninmax/imgpreviewer/internal/processor"
 	"github.com/yakuninmax/imgpreviewer/internal/server"
 	"github.com/yakuninmax/imgpreviewer/internal/storage"
 )
@@ -60,11 +59,8 @@ func main() {
 	// Init downloader.
 	dl := downloader.New(conf.RequestTimeout())
 
-	// Init processor.
-	proc := processor.New()
-
 	// Init app.
-	app := app.New(logg, cache, dl, proc)
+	app := app.New(logg, cache, dl)
 
 	// Init server.
 	srv := server.New(conf.Port(), app, logg)

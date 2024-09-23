@@ -1,12 +1,20 @@
 package app
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
+	"image"
+	"image/jpeg"
 	"strconv"
+
+	"github.com/disintegration/imaging"
 )
 
-var ErrNotEnoughParameters = errors.New("not enough parameters")
+var (
+	ErrNotEnoughParameters = errors.New("not enough parameters")
+	ErrInvalidSize         = errors.New("target size is larger than original")
+)
 
 type logger interface {
 	Info(string)
@@ -24,66 +32,23 @@ type downloader interface {
 	GetImage(url string, headers map[string][]string) ([]byte, error)
 }
 
-type processor interface {
-	Crop(data []byte, width, height int) ([]byte, error)
-	Resize(data []byte, width, height int) ([]byte, error)
-}
-
 type App struct {
 	logger     logger
 	cache      cache
 	downloader downloader
-	processor  processor
 }
 
 // Init app.
-func New(logg logger, cache cache, downloader downloader, processor processor) *App {
+func New(logg logger, cache cache, downloader downloader) *App {
 	return &App{
 		logger:     logg,
 		cache:      cache,
 		downloader: downloader,
-		processor:  processor,
 	}
-}
-
-// Process crop request.
-func (a *App) Crop(width, height, url string, headers map[string][]string) ([]byte, error) {
-	// Get request parameters.
-	w, h, u, err := getParameters(width, height, url)
-	if err != nil {
-		return nil, err
-	}
-
-	// Get image cache key
-	cacheKey := getCacheKey(w, h, u, "crop")
-
-	// Get image.
-	img, cached, err := a.getImage(cacheKey, u, headers)
-	if err != nil {
-		return nil, err
-	}
-
-	// Crop image.
-	croppedImage, err := a.processor.Crop(img, w, h)
-	if err != nil {
-		return nil, err
-	}
-
-	// Put image to cache if it not from cache.
-	if !cached {
-		err = a.cache.Put(cacheKey, croppedImage)
-		if err != nil {
-			return nil, err
-		}
-
-		a.logger.Debug("image " + url + " saved to cache")
-	}
-
-	return croppedImage, nil
 }
 
 // Process resize request.
-func (a *App) Resize(width, height, url string, headers map[string][]string) ([]byte, error) {
+func (a *App) Fill(width, height, url string, headers map[string][]string) ([]byte, error) {
 	// Get request parameters.
 	w, h, u, err := getParameters(width, height, url)
 	if err != nil {
@@ -94,20 +59,35 @@ func (a *App) Resize(width, height, url string, headers map[string][]string) ([]
 	cacheKey := getCacheKey(w, h, u, "resize")
 
 	// Get image.
-	img, cached, err := a.getImage(cacheKey, u, headers)
+	b, cached, err := a.getImage(cacheKey, u, headers)
 	if err != nil {
 		return nil, err
 	}
 
+	// Bytes to image.
+	img, _, err := image.Decode(bytes.NewReader(b))
+	if err != nil {
+		return nil, err
+	}
+
+	// Check if destination size is larger than original.
+	if w > img.Bounds().Dx() || h > img.Bounds().Dy() {
+		return nil, ErrInvalidSize
+	}
+
 	// Resize image.
-	resizedImage, err := a.processor.Resize(img, w, h)
+	img = imaging.Fill(img, w, h, imaging.Center, imaging.Lanczos)
+
+	// Image to bytes.
+	buf := new(bytes.Buffer)
+	err = jpeg.Encode(buf, img, nil)
 	if err != nil {
 		return nil, err
 	}
 
 	// Put image to cache if it not from cache.
 	if !cached {
-		err = a.cache.Put(cacheKey, resizedImage)
+		err = a.cache.Put(cacheKey, buf.Bytes())
 		if err != nil {
 			return nil, err
 		}
@@ -115,7 +95,7 @@ func (a *App) Resize(width, height, url string, headers map[string][]string) ([]
 		a.logger.Debug("image " + url + " saved to cache")
 	}
 
-	return resizedImage, nil
+	return buf.Bytes(), nil
 }
 
 // Get image.

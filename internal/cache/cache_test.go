@@ -62,7 +62,7 @@ func TestCache(t *testing.T) {
 
 			err := c.Put(file.url, d)
 
-			require.Nil(t, err)
+			require.NoError(t, err)
 		}
 
 		_ = s.Clean()
@@ -74,12 +74,10 @@ func TestCache(t *testing.T) {
 
 		d, _ := os.ReadFile(testFiles[0].url)
 		err := c.Put(testFiles[0].url, d)
-
-		require.Nil(t, err)
+		require.NoError(t, err)
 
 		cd, err := c.Get(testFiles[0].url)
-
-		require.Nil(t, err)
+		require.NoError(t, err)
 		require.Equal(t, d, cd)
 
 		_ = s.Clean()
@@ -108,7 +106,7 @@ func TestCache(t *testing.T) {
 
 			err := c.Put(file.url, d)
 
-			require.Nil(t, err)
+			require.NoError(t, err)
 		}
 
 		ds := getDirSize(s.Path())

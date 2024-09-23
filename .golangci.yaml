@@ -16,9 +16,9 @@ linters-settings:
         allow:
           - $gostd
           - github.com/yakuninmax/imgpreviewer
-          - github.com/nfnt/resize
           - github.com/pkg/errors
           - github.com/stretchr/testify/require
+          - github.com/disintegration/imaging
   dupl:
     threshold: 160
 

@@ -1,7 +1,6 @@
 services:
   imgpreviewer:
     build:
-      context: ../.
       dockerfile: Dockerfile
     container_name: imgpreviewer
     environment:
