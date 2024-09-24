@@ -129,7 +129,6 @@ func getCachePath(logg logger) (string, error) {
 	// Check if path is not absolute.
 	if !filepath.IsAbs(path) {
 		absp, err := filepath.Abs(path)
-		print(absp)
 		if err != nil {
 			return "", fmt.Errorf("invalid path: %w", err)
 		}
