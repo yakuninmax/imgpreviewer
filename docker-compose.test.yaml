@@ -14,7 +14,7 @@ services:
     container_name: imgpreviewer
     environment:
       IMPR_CACHE_SIZE: 5
-      IMPR_CACHE_FOLDER: /cache
+      IMPR_CACHE_PATH: /cache
       IMPR_REQ_TIMEOUT: 10
       IMPR_PORT: 8888
       IMPR_LOG_LEVEL: debug

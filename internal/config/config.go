@@ -11,9 +11,9 @@ import (
 )
 
 const (
-	cacheSizeEnvName      = "IMPR_CACHE_SIZE"
-	cacheFolderEnvName    = "IMPR_CACHE_FOLDER"
-	requestTimeoutEnvName = "IMPR_REQ_TIMEOUT"
+	cacheSizeEnv          = "IMPR_CACHE_SIZE"
+	cachePathEnv          = "IMPR_CACHE_PATH"
+	requestTimeoutEnv     = "IMPR_REQ_TIMEOUT"
 	serverPort            = "IMPR_PORT"
 	defaultSereverPort    = "8080"
 	defaultCacheSize      = 10485760
@@ -41,32 +41,32 @@ type Config struct {
 	serverPort     string
 }
 
-func New(logger logger) (*Config, error) {
-	cacheSize, err := getCacheSize(logger)
+func New(logg logger) (*Config, error) {
+	cs, err := getCacheSize(logg)
 	if err != nil {
 		return nil, err
 	}
 
-	cachePath, err := getCachePath(logger)
+	cp, err := getCachePath(logg)
 	if err != nil {
 		return nil, err
 	}
 
-	requestTimeout, err := getRequestTimeout(logger)
+	rt, err := getRequestTimeout(logg)
 	if err != nil {
 		return nil, err
 	}
 
-	serverPort, err := getServerPort(logger)
+	sp, err := getServerPort(logg)
 	if err != nil {
 		return nil, err
 	}
 
 	return &Config{
-		cacheSize:      cacheSize,
-		cachePath:      cachePath,
-		requestTimeout: requestTimeout,
-		serverPort:     serverPort,
+		cacheSize:      cs,
+		cachePath:      cp,
+		requestTimeout: rt,
+		serverPort:     sp,
 	}, nil
 }
 
@@ -87,15 +87,15 @@ func (c *Config) Port() string {
 }
 
 // Get cache size from env var.
-func getCacheSize(logger logger) (int64, error) {
-	env := os.Getenv(cacheSizeEnvName)
+func getCacheSize(logg logger) (int64, error) {
+	env := os.Getenv(cacheSizeEnv)
 
 	// Check if no env, or empty string.
 	if env == "" {
-		logger.Warn("IMPR_CACHE_SIZE value is empty, set default cache size " +
+		logg.Warn("IMPR_CACHE_SIZE value is empty, set default cache size " +
 			strconv.Itoa(defaultCacheSize/1024/1024) + "MB")
 
-		return defaultCacheSize, nil
+		return int64(defaultCacheSize), nil
 	}
 
 	// Convert string parameter.
@@ -110,84 +110,85 @@ func getCacheSize(logger logger) (int64, error) {
 	}
 
 	// Convert MB to bytes.
-	logger.Info("cache size is " + env + "MB")
+	logg.Info("cache size is " + env + "MB")
 
 	// Convert megabytes to bytes, and return.
 	return int64(size * 1024 * 1024), nil
 }
 
 // Get cache folder path from env var.
-func getCachePath(logger logger) (string, error) {
-	path := os.Getenv(cacheFolderEnvName)
+func getCachePath(logg logger) (string, error) {
+	path := os.Getenv(cachePathEnv)
 
 	if path == "" {
-		logger.Warn("IMPR_CACHE_PATH value is empty, set default cache path " + defaultCachePath)
+		logg.Warn("IMPR_CACHE_PATH value is empty, set default cache path " + defaultCachePath)
 
 		path = defaultCachePath
 	}
 
 	// Check if path is not absolute.
 	if !filepath.IsAbs(path) {
-		absPath, err := filepath.Abs(path)
+		absp, err := filepath.Abs(path)
+		print(absp)
 		if err != nil {
 			return "", fmt.Errorf("invalid path: %w", err)
 		}
 
-		path = absPath
+		path = absp
 	}
 
 	return path, nil
 }
 
 // Get request timeout.
-func getRequestTimeout(logger logger) (time.Duration, error) {
-	env := os.Getenv(requestTimeoutEnvName)
+func getRequestTimeout(logg logger) (time.Duration, error) {
+	env := os.Getenv(requestTimeoutEnv)
 
 	// Check if no env, or empty string.
 	if env == "" {
-		logger.Warn("IMPR_REQ_TIMEOUT value is empty, set default request timeout " +
+		logg.Warn("IMPR_REQ_TIMEOUT value is empty, set default request timeout " +
 			strconv.Itoa(defaultRequestTimeout) + " seconds")
 
-		return time.Duration(defaultRequestTimeout), nil
+		return time.Duration(defaultRequestTimeout) * time.Second, nil
 	}
 
 	// Convert string parameter.
-	timeout, err := strconv.Atoi(env)
+	to, err := strconv.Atoi(env)
 	if err != nil {
 		return 0, fmt.Errorf("failed to set request timeout: %w", err)
 	}
 
 	// Check if the timeout less or equal 0.
-	if timeout <= 0 {
+	if to <= 0 {
 		return 0, ErrRequestTimeoutZeroOrLess
 	}
 
 	// Convert MB to bytes.
 
-	logger.Info("request timeout is " + env + " seconds")
+	logg.Info("request timeout is " + env + " seconds")
 
 	// Convert int to time.Duration, and return.
-	return time.Duration(timeout), nil
+	return time.Duration(to) * time.Second, nil
 }
 
 // Get server port.
-func getServerPort(logger logger) (string, error) {
+func getServerPort(logg logger) (string, error) {
 	env := os.Getenv(serverPort)
 
 	// Check if no env, or empty string.
 	if env == "" {
-		logger.Warn("IMPR_PORT value is empty, set default port " + defaultSereverPort)
+		logg.Warn("IMPR_PORT value is empty, set default port " + defaultSereverPort)
 
 		return defaultSereverPort, nil
 	}
 
 	// Check port number.
-	intPort, err := strconv.Atoi(env)
+	p, err := strconv.Atoi(env)
 	if err != nil {
 		return "", err
 	}
 
-	if intPort < 1 || intPort > 65535 {
+	if p < 1 || p > 65535 {
 		return "", ErrInvalidPort
 	}
 

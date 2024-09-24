@@ -16,40 +16,40 @@ type Downloader struct {
 }
 
 // Create new http client.
-func New(timeout time.Duration) *Downloader {
-	client := http.Client{Timeout: timeout}
+func New(to time.Duration) *Downloader {
+	client := http.Client{Timeout: to}
 
 	return &Downloader{&client}
 }
 
 // Get image.
-func (d *Downloader) GetImage(url string, headers map[string][]string) ([]byte, error) {
+func (d *Downloader) GetImage(url string, hdr map[string][]string) ([]byte, error) {
 	// Create request context.
 	ctx := context.Background()
 
 	// Create request.
-	request, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
 		return nil, err
 	}
 
 	// Copy request headers.
-	request.Header = headers
+	req.Header = hdr
 
 	// Send request.
-	response, err := http.DefaultClient.Do(request)
+	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return nil, err
 	}
-	defer response.Body.Close()
+	defer resp.Body.Close()
 
 	// Check response status.
-	if response.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("remote server return: %v", response.Status)
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("remote server return: %v", resp.Status)
 	}
 
 	// Get body bytes.
-	body, err := io.ReadAll(response.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}

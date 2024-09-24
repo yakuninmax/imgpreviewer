@@ -17,13 +17,13 @@ type Storage struct {
 }
 
 func New(path string) (*Storage, error) {
-	tempDirPath, err := createFolder(path)
+	tmp, err := createFolder(path)
 	if err != nil {
 		return nil, err
 	}
 
 	return &Storage{
-		path: tempDirPath,
+		path: tmp,
 	}, nil
 }
 
@@ -34,9 +34,9 @@ func (s *Storage) Path() string {
 
 // Write file to storage.
 func (s *Storage) Write(name string, data []byte) error {
-	filePath := filepath.Join(s.path, name)
+	file := filepath.Join(s.path, name)
 
-	err := os.WriteFile(filePath, data, os.ModePerm.Perm())
+	err := os.WriteFile(file, data, os.ModePerm.Perm())
 	if err != nil {
 		return fmt.Errorf("failed to write file: %w", err)
 	}
@@ -46,8 +46,8 @@ func (s *Storage) Write(name string, data []byte) error {
 
 // Read file from storage.
 func (s *Storage) Read(name string) ([]byte, error) {
-	filePath := filepath.Join(s.path, name)
-	data, err := os.ReadFile(filePath)
+	file := filepath.Join(s.path, name)
+	data, err := os.ReadFile(file)
 	if err != nil {
 		return nil, fmt.Errorf("failed to read file: %w", err)
 	}
@@ -79,19 +79,19 @@ func (s *Storage) Clean() error {
 // Create cache temp folder.
 func createFolder(path string) (string, error) {
 	// Get dir name from time.
-	dirName, err := getRandomName()
+	dir, err := getRandomName()
 	if err != nil {
 		return "", err
 	}
 
-	tempDirPath := filepath.Join(path, dirName)
+	tmp := filepath.Join(path, dir)
 
 	// Check if given path exists.
 	stat, err := os.Stat(path)
 
 	// If path not exists, or exists and it is dir, create temp dir.
 	if errors.Is(err, os.ErrNotExist) || stat.IsDir() {
-		if err := os.MkdirAll(tempDirPath, os.ModePerm); err != nil {
+		if err := os.MkdirAll(tmp, os.ModePerm); err != nil {
 			return "", fmt.Errorf("failed to create cache dir: %w", err)
 		}
 	} else {
@@ -102,7 +102,7 @@ func createFolder(path string) (string, error) {
 		return "", fmt.Errorf("failed to get dir: %w", err)
 	}
 
-	return tempDirPath, nil
+	return tmp, nil
 }
 
 func getRandomName() (string, error) {

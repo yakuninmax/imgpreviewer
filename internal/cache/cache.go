@@ -59,7 +59,7 @@ func (c *Cache) Get(key string) ([]byte, error) {
 	}
 
 	// Read file.
-	image, err := c.storage.Read(c.files[key].file.name)
+	img, err := c.storage.Read(c.files[key].file.name)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func (c *Cache) Get(key string) ([]byte, error) {
 	c.queue.moveToFront(c.files[key])
 	c.files[key] = c.queue.getFront()
 
-	return image, nil
+	return img, nil
 }
 
 // Put file to cache.

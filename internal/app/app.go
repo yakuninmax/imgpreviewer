@@ -39,27 +39,27 @@ type App struct {
 }
 
 // Init app.
-func New(logg logger, cache cache, downloader downloader) *App {
+func New(logg logger, cache cache, dl downloader) *App {
 	return &App{
 		logger:     logg,
 		cache:      cache,
-		downloader: downloader,
+		downloader: dl,
 	}
 }
 
 // Process resize request.
-func (a *App) Fill(width, height, url string, headers map[string][]string) ([]byte, error) {
+func (a *App) Fill(ws, hs, url string, hdr map[string][]string) ([]byte, error) {
 	// Get request parameters.
-	w, h, u, err := getParameters(width, height, url)
+	wi, hi, url, err := getParameters(ws, hs, url)
 	if err != nil {
 		return nil, err
 	}
 
 	// Get image cache key
-	cacheKey := getCacheKey(w, h, u, "resize")
+	ck := getCacheKey(wi, hi, url, "resize")
 
 	// Get image.
-	b, cached, err := a.getImage(cacheKey, u, headers)
+	b, cached, err := a.getImage(ck, url, hdr)
 	if err != nil {
 		return nil, err
 	}
@@ -71,12 +71,12 @@ func (a *App) Fill(width, height, url string, headers map[string][]string) ([]by
 	}
 
 	// Check if destination size is larger than original.
-	if w > img.Bounds().Dx() || h > img.Bounds().Dy() {
+	if wi > img.Bounds().Dx() || hi > img.Bounds().Dy() {
 		return nil, ErrInvalidSize
 	}
 
 	// Resize image.
-	img = imaging.Fill(img, w, h, imaging.Center, imaging.Lanczos)
+	img = imaging.Fill(img, wi, hi, imaging.Center, imaging.Lanczos)
 
 	// Image to bytes.
 	buf := new(bytes.Buffer)
@@ -87,7 +87,7 @@ func (a *App) Fill(width, height, url string, headers map[string][]string) ([]by
 
 	// Put image to cache if it not from cache.
 	if !cached {
-		err = a.cache.Put(cacheKey, buf.Bytes())
+		err = a.cache.Put(ck, buf.Bytes())
 		if err != nil {
 			return nil, err
 		}
@@ -99,9 +99,9 @@ func (a *App) Fill(width, height, url string, headers map[string][]string) ([]by
 }
 
 // Get image.
-func (a *App) getImage(cacheKey, url string, headers map[string][]string) ([]byte, bool, error) {
+func (a *App) getImage(ck, url string, hdr map[string][]string) ([]byte, bool, error) {
 	// Search in cache.
-	data, err := a.cache.Get(cacheKey)
+	data, err := a.cache.Get(ck)
 	if err != nil {
 		return nil, false, err
 	}
@@ -114,7 +114,7 @@ func (a *App) getImage(cacheKey, url string, headers map[string][]string) ([]byt
 
 	a.logger.Debug("image " + url + " not found in cache, trying to download")
 	// If not found in cache, download image.
-	data, err = a.downloader.GetImage(url, headers)
+	data, err = a.downloader.GetImage(url, hdr)
 	if err != nil {
 		return nil, false, err
 	}
@@ -125,31 +125,31 @@ func (a *App) getImage(cacheKey, url string, headers map[string][]string) ([]byt
 }
 
 // Get image cache key.
-func getCacheKey(width, height int, url, action string) string {
-	return fmt.Sprintf("%d-%d-%s-%s", width, height, url, action)
+func getCacheKey(wi, hi int, url, action string) string {
+	return fmt.Sprintf("%d-%d-%s-%s", wi, hi, url, action)
 }
 
 // Check request parameters.
-func getParameters(width, height, imageURL string) (int, int, string, error) {
+func getParameters(ws, hs, url string) (int, int, string, error) {
 	// Check if parameters are not empty.
-	if width == "" || height == "" || imageURL == "" {
+	if ws == "" || hs == "" || url == "" {
 		return 0, 0, "", ErrNotEnoughParameters
 	}
 
 	// Get width.
-	w, err := strconv.Atoi(width)
+	wi, err := strconv.Atoi(ws)
 	if err != nil {
 		return 0, 0, "", err
 	}
 
 	// Get heigth.
-	h, err := strconv.Atoi(height)
+	hi, err := strconv.Atoi(hs)
 	if err != nil {
 		return 0, 0, "", err
 	}
 
 	// Add scheme to url.
-	u := "http://" + imageURL
+	url = "http://" + url
 
-	return w, h, u, nil
+	return wi, hi, url, nil
 }

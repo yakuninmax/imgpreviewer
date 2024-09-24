@@ -46,18 +46,18 @@ func New() (*Logger, error) {
 	return &Logger{logger: logger}, nil
 }
 
-func (l *Logger) Info(message string) {
-	l.logger.Info(message)
+func (l *Logger) Info(msg string) {
+	l.logger.Info(msg)
 }
 
-func (l *Logger) Warn(message string) {
-	l.logger.Warn(message)
+func (l *Logger) Warn(msg string) {
+	l.logger.Warn(msg)
 }
 
-func (l *Logger) Error(message string) {
-	l.logger.Error(message)
+func (l *Logger) Error(msg string) {
+	l.logger.Error(msg)
 }
 
-func (l *Logger) Debug(message string) {
-	l.logger.Debug(message)
+func (l *Logger) Debug(msg string) {
+	l.logger.Debug(msg)
 }

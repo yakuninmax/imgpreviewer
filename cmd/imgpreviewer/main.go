@@ -76,14 +76,14 @@ func main() {
 		logg.Info("stopped serving new connections")
 	}()
 
-	sigChan := make(chan os.Signal, 1)
-	signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM)
-	<-sigChan
+	sig := make(chan os.Signal, 1)
+	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
+	<-sig
 
-	shutdownCtx, shutdownRelease := context.WithTimeout(context.Background(), 5*time.Second)
-	defer shutdownRelease()
+	sctx, rctx := context.WithTimeout(context.Background(), 5*time.Second)
+	defer rctx()
 
-	if err := srv.Stop(shutdownCtx); err != nil {
+	if err := srv.Stop(sctx); err != nil {
 		logg.Error(err.Error())
 		panic(err.Error())
 	}

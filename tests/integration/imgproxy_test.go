@@ -13,7 +13,7 @@ import (
 	"github.com/stretchr/testify/suite"
 )
 
-const proxyAddr = "http://localhost:8888/"
+const proxy = "http://localhost:8888/"
 
 type ProxySuite struct {
 	suite.Suite
@@ -27,97 +27,97 @@ func (p *ProxySuite) SetupSuite() {
 }
 
 func (p *ProxySuite) TestImageNotFound() {
-	response, err := p.client.Get(proxyAddr + "fill/100/200/nginx/fakeimage.jpg")
+	resp, err := p.client.Get(proxy + "fill/100/200/nginx/fakeimage.jpg")
 	p.Require().NoError(err)
-	p.Require().Equal(502, response.StatusCode)
+	p.Require().Equal(502, resp.StatusCode)
 
-	bodyString, err := getResponseBodyString(*response)
+	body, err := getResponseBodyString(*resp)
 	p.Require().NoError(err)
-	p.Require().Equal("remote server return: 404 Not Found\n", bodyString)
+	p.Require().Equal("remote server return: 404 Not Found\n", body)
 
-	response.Body.Close()
+	resp.Body.Close()
 }
 
 func (p *ProxySuite) TestServerConnectionError() {
-	response, err := p.client.Get(proxyAddr + "fill/100/200/fake.serv/fakeimage.jpg")
+	resp, err := p.client.Get(proxy + "fill/100/200/fake.serv/fakeimage.jpg")
 	p.Require().NoError(err)
-	p.Require().Equal(502, response.StatusCode)
+	p.Require().Equal(502, resp.StatusCode)
 
-	bodyString, err := getResponseBodyString(*response)
+	bodyString, err := getResponseBodyString(*resp)
 	p.Require().NoError(err)
 	p.Require().Contains(bodyString, "no such host")
 
-	response.Body.Close()
+	resp.Body.Close()
 }
 
 func (p *ProxySuite) TestRemoteServerError() {
-	response, err := p.client.Get(proxyAddr + "fill/100/200/nginx/error")
+	resp, err := p.client.Get(proxy + "fill/100/200/nginx/error")
 	p.Require().NoError(err)
-	p.Require().Equal(502, response.StatusCode)
+	p.Require().Equal(502, resp.StatusCode)
 
-	bodyString, err := getResponseBodyString(*response)
+	body, err := getResponseBodyString(*resp)
 	p.Require().NoError(err)
-	p.Require().Equal(bodyString, "remote server return: 503 Service Temporarily Unavailable\n")
+	p.Require().Equal(body, "remote server return: 503 Service Temporarily Unavailable\n")
 
-	response.Body.Close()
+	resp.Body.Close()
 }
 
 func (p *ProxySuite) TestInvalidFileType() {
-	response, err := p.client.Get(proxyAddr + "fill/100/200/nginx/text.file")
+	resp, err := p.client.Get(proxy + "fill/100/200/nginx/text.file")
 	p.Require().NoError(err)
-	p.Require().Equal(502, response.StatusCode)
+	p.Require().Equal(502, resp.StatusCode)
 
-	bodyString, err := getResponseBodyString(*response)
+	body, err := getResponseBodyString(*resp)
 	p.Require().NoError(err)
-	p.Require().Equal(bodyString, "invalid file type\n")
+	p.Require().Equal(body, "invalid file type\n")
 
-	response.Body.Close()
+	resp.Body.Close()
 }
 
 func (p *ProxySuite) TestInvalidImageSize() {
-	response, err := p.client.Get(proxyAddr + "fill/3000/5000/nginx/_gopher_original_1024x504.jpg")
+	resp, err := p.client.Get(proxy + "fill/3000/5000/nginx/_gopher_original_1024x504.jpg")
 	p.Require().NoError(err)
-	p.Require().Equal(502, response.StatusCode)
+	p.Require().Equal(502, resp.StatusCode)
 
-	bodyString, err := getResponseBodyString(*response)
+	body, err := getResponseBodyString(*resp)
 	p.Require().NoError(err)
-	p.Require().Contains(bodyString, "target size is larger than original")
+	p.Require().Contains(body, "target size is larger than original")
 
-	response.Body.Close()
+	resp.Body.Close()
 }
 
 func (p *ProxySuite) TestCustomHeaderPass() {
 	ctx := context.Background()
-	request, err := http.NewRequestWithContext(ctx, http.MethodGet, proxyAddr+"fill/100/200/nginx/protected/_gopher_original_1024x504.jpg", nil)
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, proxy+"fill/100/200/nginx/protected/_gopher_original_1024x504.jpg", nil)
 	p.Require().NoError(err)
 
-	request.Header.Add("Authorization", "Basic "+base64.StdEncoding.EncodeToString([]byte("testuser:testpass")))
+	req.Header.Add("Authorization", "Basic "+base64.StdEncoding.EncodeToString([]byte("testuser:testpass")))
 
-	response, err := p.client.Do(request)
+	resp, err := p.client.Do(req)
 	p.Require().NoError(err)
-	p.Require().Equal(200, response.StatusCode)
-	p.Require().NotNil(response.Body)
+	p.Require().Equal(200, resp.StatusCode)
+	p.Require().NotNil(resp.Body)
 
-	response.Body.Close()
+	resp.Body.Close()
 }
 
 func (p *ProxySuite) TestSuccessfullProcessing() {
-	response, err := p.client.Get(proxyAddr + "fill/100/200/nginx/_gopher_original_1024x504.jpg")
+	resp, err := p.client.Get(proxy + "fill/100/200/nginx/_gopher_original_1024x504.jpg")
 	p.Require().NoError(err)
-	p.Require().Equal(200, response.StatusCode)
+	p.Require().Equal(200, resp.StatusCode)
 	p.Require().NoError(err)
-	p.Require().NotNil(response.Body)
+	p.Require().NotNil(resp.Body)
 
-	response.Body.Close()
+	resp.Body.Close()
 }
 
-func getResponseBodyString(response http.Response) (string, error) {
-	bodyBytes, err := io.ReadAll(response.Body)
+func getResponseBodyString(resp http.Response) (string, error) {
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return "", err
 	}
 
-	return string(bodyBytes), nil
+	return string(body), nil
 }
 
 func TestProxySuite(t *testing.T) {

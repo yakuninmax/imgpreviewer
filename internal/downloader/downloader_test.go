@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestCache(t *testing.T) {
+func TestDownloader(t *testing.T) {
 	dl := New(10 * time.Second)
 	var hdr map[string][]string
 

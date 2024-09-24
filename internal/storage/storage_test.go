@@ -7,14 +7,12 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestCache(t *testing.T) {
+func TestStorage(t *testing.T) {
 	tfn := "testfile"
 
 	s, err := New("/tmp")
 	require.NoError(t, err)
-
-	_, err = os.Stat(s.path)
-	require.NotErrorIs(t, err, os.ErrNotExist)
+	require.DirExists(t, s.path)
 
 	t.Run("write file", func(t *testing.T) {
 		data, err := os.ReadFile("../../examples/_gopher_original_1024x504.jpg")
@@ -41,8 +39,6 @@ func TestCache(t *testing.T) {
 	t.Run("clean storage", func(t *testing.T) {
 		err := s.Clean()
 		require.NoError(t, err)
-
-		_, err = os.Stat(s.path)
-		require.ErrorIs(t, err, os.ErrNotExist)
+		require.NoDirExists(t, s.path)
 	})
 }
