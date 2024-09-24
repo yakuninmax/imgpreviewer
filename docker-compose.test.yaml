@@ -1,0 +1,22 @@
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./tests/configs/default.conf:/etc/nginx/conf.d/default.conf
+      - ./tests/configs/.htpasswd:/etc/nginx/.htpasswd
+      - ./examples:/usr/share/nginx/html/examples
+      - ./examples:/usr/share/nginx/html/protected
+    ports:
+      - 9999:80
+  imgpreviewer:
+    build:
+      dockerfile: Dockerfile
+    container_name: imgpreviewer
+    environment:
+      IMPR_CACHE_SIZE: 5
+      IMPR_CACHE_PATH: /cache
+      IMPR_REQ_TIMEOUT: 10
+      IMPR_PORT: 8888
+      IMPR_LOG_LEVEL: debug
+    ports:
+      - 8888:8888

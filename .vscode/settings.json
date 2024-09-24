@@ -1,0 +1,9 @@
+{
+    "gopls.env": {
+        "GOFLAGS": "-tags=test"
+    },
+    "go.buildFlags": [
+        "-tags=integration"
+    ],
+    "go.testTags": "integration",
+}
