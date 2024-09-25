@@ -56,7 +56,7 @@ func (a *App) Fill(ws, hs, url string, hdr map[string][]string) ([]byte, error) 
 	}
 
 	// Get image cache key
-	ck := getCacheKey(wi, hi, url, "resize")
+	ck := getCacheKey(wi, hi, url)
 
 	// Get image.
 	b, cached, err := a.getImage(ck, url, hdr)
@@ -125,8 +125,8 @@ func (a *App) getImage(ck, url string, hdr map[string][]string) ([]byte, bool, e
 }
 
 // Get image cache key.
-func getCacheKey(wi, hi int, url, action string) string {
-	return fmt.Sprintf("%d-%d-%s-%s", wi, hi, url, action)
+func getCacheKey(wi, hi int, url string) string {
+	return fmt.Sprintf("%d-%d-%s", wi, hi, url)
 }
 
 // Check request parameters.
@@ -149,7 +149,7 @@ func getParameters(ws, hs, url string) (int, int, string, error) {
 	}
 
 	// Add scheme to url.
-	url = "http://" + url
+	// url = "http://" + url
 
 	return wi, hi, url, nil
 }

@@ -1,13 +1,12 @@
 package config
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
 	"strconv"
 	"time"
-
-	"github.com/pkg/errors"
 )
 
 const (

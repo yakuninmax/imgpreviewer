@@ -20,20 +20,17 @@ import (
 )
 
 func main() {
-	// Init logger.
 	logg, err := logger.New()
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
 
-	// Get config.
 	conf, err := config.New(logg)
 	if err != nil {
 		logg.Error(err.Error())
 		os.Exit(1)
 	}
 
-	// Init cache storage.
 	store, err := storage.New(conf.CachePath())
 	if err != nil {
 		logg.Error(err.Error())
@@ -49,20 +46,12 @@ func main() {
 	}()
 	logg.Info("temp cache folder is " + conf.CachePath())
 
-	// Init cache.
-	cache, err := cache.New(conf.CacheSize(), store)
-	if err != nil {
-		logg.Error(err.Error())
-		panic(err.Error())
-	}
+	cache := cache.New(conf.CacheSize(), store)
 
-	// Init downloader.
 	dl := downloader.New(conf.RequestTimeout())
 
-	// Init app.
 	app := app.New(logg, cache, dl)
 
-	// Init server.
 	srv := server.New(conf.Port(), app, logg)
 
 	go func() {
@@ -70,7 +59,7 @@ func main() {
 		err := srv.Start()
 		if err != nil && !errors.Is(err, http.ErrServerClosed) {
 			logg.Error(err.Error())
-			panic(err.Error())
+			os.Exit(1)
 		}
 
 		logg.Info("stopped serving new connections")

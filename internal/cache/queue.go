@@ -57,7 +57,6 @@ func (q *queue) remove(item *item) {
 	case prev == nil && next == nil:
 		q.front = nil
 		q.back = nil
-		item = nil
 
 	// If item is first.
 	case prev == nil:
@@ -84,6 +83,6 @@ func (q *queue) moveToFront(item *item) {
 		q.back = item.prev
 	}
 
-	q.pushFront(item.file)
 	q.remove(item)
+	q.pushFront(item.file)
 }
