@@ -149,7 +149,7 @@ func getParameters(ws, hs, url string) (int, int, string, error) {
 	}
 
 	// Add scheme to url.
-	// url = "http://" + url
+	url = "http://" + url
 
 	return wi, hi, url, nil
 }
