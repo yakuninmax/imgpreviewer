@@ -56,7 +56,7 @@ func TestCache(t *testing.T) {
 
 	t.Run("put files to cache", func(t *testing.T) {
 		s, _ := store.New("/tmp/test")
-		c, _ := New(size, s)
+		c := New(size, s)
 		for _, file := range testFiles {
 			d, _ := os.ReadFile(file.url)
 
@@ -70,7 +70,7 @@ func TestCache(t *testing.T) {
 
 	t.Run("get file from cache", func(t *testing.T) {
 		s, _ := store.New("/tmp/test")
-		c, _ := New(size, s)
+		c := New(size, s)
 
 		d, _ := os.ReadFile(testFiles[0].url)
 		err := c.Put(testFiles[0].url, d)
@@ -86,7 +86,7 @@ func TestCache(t *testing.T) {
 	t.Run("put file larger than cache size", func(t *testing.T) {
 		size := int64(1000)
 		s, _ := store.New("/tmp/test")
-		c, _ := New(size, s)
+		c := New(size, s)
 
 		d, _ := os.ReadFile(testFiles[0].url)
 		err := c.Put(testFiles[0].url, d)
@@ -98,7 +98,7 @@ func TestCache(t *testing.T) {
 
 	t.Run("cache oversize", func(t *testing.T) {
 		s, _ := store.New("/tmp/test")
-		c, _ := New(int64(300000), s)
+		c := New(int64(300000), s)
 
 		t.Log(s.Path())
 		for _, file := range testFiles {

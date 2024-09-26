@@ -34,7 +34,7 @@ type file struct {
 	name string
 }
 
-func New(size int64, storage storage) (*Cache, error) {
+func New(size int64, storage storage) *Cache {
 	mutex := &sync.Mutex{}
 
 	return &Cache{
@@ -43,7 +43,7 @@ func New(size int64, storage storage) (*Cache, error) {
 		queue:   newQueue(),
 		files:   make(map[string]*item),
 		storage: storage,
-	}, nil
+	}
 }
 
 // Get file from cache.

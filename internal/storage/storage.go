@@ -2,13 +2,15 @@ package storage
 
 import (
 	"crypto/rand"
+	"errors"
 	"fmt"
 	"math/big"
 	"os"
 	"path/filepath"
-
-	"github.com/pkg/errors"
+	"strings"
 )
+
+const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789"
 
 var ErrPathIsNotDir = errors.New("given path is not a dir")
 
@@ -106,9 +108,7 @@ func createFolder(path string) (string, error) {
 }
 
 func getRandomName() (string, error) {
-	alphabet := "abcdefghijklmnopqrstuvwxyz0123456789"
-
-	var name string
+	var name strings.Builder
 
 	for i := 0; i < 8; i++ {
 		n, err := rand.Int(rand.Reader, big.NewInt(int64(len(alphabet))))
@@ -116,8 +116,8 @@ func getRandomName() (string, error) {
 			return "", err
 		}
 
-		name += string(alphabet[int(n.Int64())])
+		name.WriteString(n.String())
 	}
 
-	return name, nil
+	return name.String(), nil
 }

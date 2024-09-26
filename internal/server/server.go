@@ -7,6 +7,12 @@ import (
 	"time"
 )
 
+const (
+	writeTimeout = time.Second * 15
+	readTimeout  = time.Second * 15
+	idleTimeout  = time.Second * 60
+)
+
 type app interface {
 	Fill(width, height, url string, headers map[string][]string) ([]byte, error)
 }
@@ -43,9 +49,9 @@ func (s *Server) Start() error {
 	s.server = &http.Server{
 		Addr:         s.addr,
 		Handler:      mux,
-		WriteTimeout: time.Second * 15,
-		ReadTimeout:  time.Second * 15,
-		IdleTimeout:  time.Second * 60,
+		WriteTimeout: writeTimeout,
+		ReadTimeout:  readTimeout,
+		IdleTimeout:  idleTimeout,
 	}
 
 	// Run server.
